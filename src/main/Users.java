@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.io.Serializable;
 
 public class Users implements Serializable {
-    String nameUser;
+    String nameU;
     String email;
     String provi;
     String password;
