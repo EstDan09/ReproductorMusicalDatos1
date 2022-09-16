@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
 
 <VBox alignment="CENTER" prefHeight="739.0" prefWidth="895.0" spacing="20.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.MainController">
     <padding>
@@ -10,4 +11,5 @@
     </padding>
     <Button onAction="#onHelloButtonClick" prefHeight="28.0" prefWidth="118.0" text="Iniciar Sesión" />
    <Button onAction="#onHelloButtonClick" prefHeight="28.0" prefWidth="118.0" text="Crear Cuenta" />
+   <Circle fill="#708294" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
 </VBox>
