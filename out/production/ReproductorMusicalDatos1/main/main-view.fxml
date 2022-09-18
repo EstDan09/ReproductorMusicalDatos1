@@ -10,8 +10,8 @@
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
-   <TextField />
-    <Button onAction="#onHelloButtonClick" prefHeight="28.0" prefWidth="118.0" text="Iniciar Sesión" />
-   <Button onAction="#onHelloButtonClick" prefHeight="28.0" prefWidth="118.0" text="Crear Cuenta" />
+   <TextField fx:id="textField1" />
+    <Button onAction="#saveUser" prefHeight="28.0" prefWidth="118.0" text="Iniciar Sesión" />
+   <Button fx:id="crearCuenta" onAction="#saveUser" prefHeight="28.0" prefWidth="118.0" text="Crear Cuenta" />
    <Circle fill="#708294" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
 </VBox>

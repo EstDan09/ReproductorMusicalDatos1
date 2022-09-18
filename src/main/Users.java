@@ -17,4 +17,5 @@ public class Users implements Serializable {
         this.provi = provi;
         this.password = password;
     }
+
 }

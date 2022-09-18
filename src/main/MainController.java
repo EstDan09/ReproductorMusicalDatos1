@@ -1,14 +1,36 @@
 package main;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class MainController {
     @FXML
-    private Label welcomeText;
+    private TextField textField1;
+    @FXML
+    private Button crearCuenta;
 
     @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Test!");
+    private void saveUser() throws IOException {
+        String name = textField1.getText();
+        System.out.println(name);
+        FXMLLoader createUFxml = new FXMLLoader(getClass().getResource("createU-view.fxml"));
+        Parent createUParent = createUFxml.load();
+        Stage createUStage = new Stage();
+        createUStage.setScene(new Scene(createUParent));
+        createUStage.initModality(Modality.NONE); //se puede borrar
+        //createUStage.initOwner(crearCuenta.getScene().getWindow());
+        Stage mainStage = (Stage) crearCuenta.getScene().getWindow();
+        mainStage.close();
+        createUStage.show();
     }
 }
