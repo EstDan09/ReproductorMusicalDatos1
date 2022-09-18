@@ -18,6 +18,6 @@ public class CreateUView implements Initializable{
         provinciaBox.getItems().add("Heredia");
         provinciaBox.getItems().add("Puntarenas");
         provinciaBox.getItems().add("Guanacaste");
-        provinciaBox.getItems().add("Limón");
+        provinciaBox.getItems().add("Limón"); // hi
     }
 }
