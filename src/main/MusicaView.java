@@ -11,7 +11,29 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
+
 public class MusicaView implements Initializable {
+    @FXML
+    private Button albumsButton;
+
+    @FXML
+    private Button artistsButton;
+
+    @FXML
+    private Button homeButton;
+
+    @FXML
+    private ImageView playIcon;
+
+    @FXML
+    private Button searchButton;
+
+    @FXML
+    private Button searchButton1;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Scanner leoUsuarioActual = null;
