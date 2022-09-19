@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 
 public class CreateUView implements Initializable{
     @FXML
@@ -34,8 +35,7 @@ public class CreateUView implements Initializable{
         Users actual = new Users(nombreText.getText(), correoText.getText(), provinciaBox.getValue(), contrasenaText.getText());
         FileWriter archivoUsuario = new FileWriter("Usuarios.txt", true);
         PrintWriter escritor = new PrintWriter(archivoUsuario);
-        escritor.print(actual.getNameComplete() + "," + actual.getEmail() + "," + actual.getProvi() + "," + actual.getPassword());
+        escritor.print(actual.getNameComplete() + "," + actual.getEmail() + "," + actual.getProvi() + "," + actual.getPassword() + "\n");
         escritor.close();
-
     }
 }

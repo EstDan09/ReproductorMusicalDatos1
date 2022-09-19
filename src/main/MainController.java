@@ -12,9 +12,9 @@ import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class MainController {
 
@@ -30,8 +30,6 @@ public class MainController {
 
     @FXML
     private void goToCrear() throws IOException {
-        String name = inicioCorreo.getText();
-        System.out.println(name);
         FXMLLoader createUFxml = new FXMLLoader(getClass().getResource("createU-view.fxml"));
         Parent createUParent = createUFxml.load();
         Stage createUStage = new Stage();
@@ -45,7 +43,36 @@ public class MainController {
 
     @FXML
     private void goToMusic() throws IOException {
+        int contadorLinea = 0;
+        List<String> uValidos = new ArrayList<>();
+        Scanner leo = new Scanner(new FileReader("Usuarios.txt"));
+        leo.useDelimiter("[,:\r\n]+");
+        while(leo.hasNext()) {
+            if (contadorLinea == 4){
+                if (Objects.equals(uValidos.get(1),inicioCorreo.getText()) && Objects.equals(uValidos.get(3),inicioContrasena.getText())){
+                    FXMLLoader musicaFxml = new FXMLLoader(getClass().getResource("musica-view.fxml"));
+                    Parent musicaParent = musicaFxml.load();
+                    Stage musicaStage = new Stage();
+                    musicaStage.setScene(new Scene(musicaParent));
+                    musicaStage.initModality(Modality.NONE); //se puede borrar
+                    //createUStage.initOwner(crearCuenta.getScene().getWindow());
+                    Stage mainStage = (Stage) crearCuenta.getScene().getWindow();
+                    mainStage.close();
+                    musicaStage.show();
+                    System.out.println(uValidos);
+                    break;
+                }
+                else{
+                    uValidos.clear();
+                    contadorLinea = 0;
+                    leo.nextLine();
+                    System.out.println(uValidos);
+                }
+            }
+            else{
+                uValidos.add(leo.next());
+                contadorLinea++;
+            }
+        }
     }
-
-
 }

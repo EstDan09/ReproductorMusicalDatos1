@@ -12,6 +12,6 @@
     </padding>
    <TextField fx:id="inicioCorreo" promptText="Correo electrónico" />
    <PasswordField fx:id="inicioContrasena" promptText="Contraseña" />
-    <Button fx:id="iSesion" onAction="#goToCrear" prefHeight="28.0" prefWidth="118.0" text="Iniciar Sesión" />
+    <Button fx:id="iSesion" onAction="#goToMusic" prefHeight="28.0" prefWidth="118.0" text="Iniciar Sesión" />
    <Button fx:id="crearCuenta" onAction="#goToCrear" prefHeight="28.0" prefWidth="118.0" text="Crear Cuenta" />
 </VBox>
