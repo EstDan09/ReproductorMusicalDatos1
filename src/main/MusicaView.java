@@ -1,4 +1,34 @@
 package main;
 
-public class MusicaView {
+import javafx.fxml.Initializable;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
+import java.util.Scanner;
+
+public class MusicaView implements Initializable {
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        Scanner leoUsuarioActual = null;
+        try {
+            leoUsuarioActual = new Scanner(new FileReader("UsuarioActual.txt"));
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        leoUsuarioActual.useDelimiter(",");
+        List<String> uActual = new ArrayList<>();
+        while (leoUsuarioActual.hasNext()){
+            uActual.add(leoUsuarioActual.next());
+        }
+        leoUsuarioActual.close();
+        System.out.println(uActual);
+    }
+    public void main() throws IOException {
+
+    }
 }

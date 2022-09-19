@@ -17,7 +17,7 @@ import java.net.URL;
 import java.util.*;
 
 public class MainController {
-
+    public List<String> uValidos = new ArrayList<>();
     @FXML
     private TextField inicioCorreo;
     @FXML
@@ -33,6 +33,7 @@ public class MainController {
         FXMLLoader createUFxml = new FXMLLoader(getClass().getResource("createU-view.fxml"));
         Parent createUParent = createUFxml.load();
         Stage createUStage = new Stage();
+        createUStage.setTitle("Crea Tu Cuenta");
         createUStage.setScene(new Scene(createUParent));
         createUStage.initModality(Modality.NONE); //se puede borrar
         //createUStage.initOwner(crearCuenta.getScene().getWindow());
@@ -44,21 +45,26 @@ public class MainController {
     @FXML
     private void goToMusic() throws IOException {
         int contadorLinea = 0;
-        List<String> uValidos = new ArrayList<>();
         Scanner leo = new Scanner(new FileReader("Usuarios.txt"));
         leo.useDelimiter("[,:\r\n]+");
         while(leo.hasNext()) {
-            if (contadorLinea == 4){
+            if (contadorLinea == 4) {
                 if (Objects.equals(uValidos.get(1),inicioCorreo.getText()) && Objects.equals(uValidos.get(3),inicioContrasena.getText())){
                     FXMLLoader musicaFxml = new FXMLLoader(getClass().getResource("musica-view.fxml"));
                     Parent musicaParent = musicaFxml.load();
                     Stage musicaStage = new Stage();
+                    musicaStage.setTitle("FE MusicPlayer");
                     musicaStage.setScene(new Scene(musicaParent));
                     musicaStage.initModality(Modality.NONE); //se puede borrar
                     //createUStage.initOwner(crearCuenta.getScene().getWindow());
                     Stage mainStage = (Stage) crearCuenta.getScene().getWindow();
                     mainStage.close();
                     musicaStage.show();
+                    leo.close();
+                    FileWriter archivoUsuarioActual = new FileWriter("UsuarioActual.txt", false);
+                    PrintWriter escritor = new PrintWriter(archivoUsuarioActual);
+                    escritor.print(uValidos.get(0) + "," + uValidos.get(1) + "," + uValidos.get(2) + "," + uValidos.get(3));
+                    escritor.close();
                     System.out.println(uValidos);
                     break;
                 }

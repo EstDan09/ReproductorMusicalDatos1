@@ -18,6 +18,6 @@
       <Label fx:id="provinciaText" text="Seleccione Provincia de Procedencia" />
       <ChoiceBox fx:id="provinciaBox" prefWidth="150.0" />
       <PasswordField fx:id="contrasenaText" promptText="Digite su contraseña" />
-      <Button fx:id="logFromCrear" onAction="#saveUser" mnemonicParsing="false" text="Crear Usuario" />
+      <Button fx:id="logFromCrear" onAction="#saveUser" mnemonicParsing="false" text="Finalizar Registro" />
    </children>
 </VBox>
