@@ -1,47 +1,88 @@
 package main;
 
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
-import javax.swing.text.html.ImageView;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
-import java.util.Scanner;
+import java.beans.XMLDecoder;
+import java.io.*;
 
+import java.net.URL;
+import java.util.*;
+
+import javafx.scene.media.Media;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
+import javafx.scene.media.MediaPlayer;
 
 public class MusicaView implements Initializable {
+    @FXML
+    private Button albumsButton;
 
     @FXML
-    ImageView dotImage;
-    ImageView homeImage;
-    ImageView libImage;
-    ImageView playImage;
+    private Button artistsButton;
 
+    @FXML
+    private Button homeButton;
 
+    @FXML
+    private ImageView playIcon;
+
+    @FXML
+    private Button searchButton;
+
+    @FXML
+    private Button searchButton1;
+    @FXML
+    private Label tebiLabel;
+
+    private File directorio;
+    private File[] archivos;
+
+    private ArrayList<File> rolas;
+    private int numRola;
+    private boolean running;
+    private Media soniditos;
+    private MediaPlayer reproductorHD;
 
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        Scanner leoUsuarioActual = null;
+    public void initialize (URL url, ResourceBundle resourceBundle) {
         try {
-            leoUsuarioActual = new Scanner(new FileReader("UsuarioActual.txt"));
-        } catch (FileNotFoundException e) {
+            FileInputStream cargaUsuarioActual = new FileInputStream("./usuarioActual.xml");
+            XMLDecoder decoder = new XMLDecoder(cargaUsuarioActual);
+            Users usActual = (Users)decoder.readObject();
+            cargaUsuarioActual.close();
+            tebiLabel.setText(usActual.getNameComplete());
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        leoUsuarioActual.useDelimiter(",");
-        List<String> uActual = new ArrayList<>();
-        while (leoUsuarioActual.hasNext()){
-            uActual.add(leoUsuarioActual.next());
+
+        rolas = new ArrayList<File>();
+        directorio = new File("songs");
+        archivos = directorio.listFiles();
+
+        if(archivos != null){
+            for(File file : archivos){
+                rolas.add(file);
+                System.out.println(file);
+            }
         }
-        leoUsuarioActual.close();
-        System.out.println(uActual);
+        soniditos = new Media(rolas.get(numRola).toURI().toString());
+        reproductorHD = new MediaPlayer(soniditos);
     }
-    public void main() throws IOException {
+    public void playSong(){
+        reproductorHD.play();
+    }
+    public void pauseSong(){
+    }
+    public void resetSong(){
+    }
+    public void prevSong(){
+    }
+    public void nextSong(){
+    }
+    public void createPlaylist(){
 
     }
 }
