@@ -81,7 +81,7 @@
                     <items>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #422e4f#422e4f;">
                            <children>
-                              <Button fx:id="playButton" onAction="#playSong" layoutX="310.0" layoutY="226.0" mnemonicParsing="false" style="-fx-background-color: transparente;" text="Play" textFill="WHITE">
+                              <Button fx:id="playButton" layoutX="310.0" layoutY="226.0" mnemonicParsing="false" onAction="#playSong" style="-fx-background-color: transparente;" text="Play" textFill="WHITE">
                                  <font>
                                     <Font name="Segoe UI Black" size="13.0" />
                                  </font>
@@ -131,7 +131,7 @@
    <right>
       <VBox prefHeight="569.0" prefWidth="168.0" style="-fx-background-color: #bba4c5#bba4c5;" BorderPane.alignment="CENTER">
          <children>
-            <Label style="-fx-font-style: #fff;" text="Usuario" textFill="#f8f4f4">
+            <Label fx:id="tebiLabel" style="-fx-font-style: #fff;" text="Usuario" textFill="#f8f4f4">
                <font>
                   <Font name="Segoe UI Black" size="24.0" />
                </font>
