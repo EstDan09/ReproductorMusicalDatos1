@@ -62,5 +62,6 @@ public class CreateUView implements Initializable{
         Stage mainStage = (Stage) logFromCrear.getScene().getWindow();
         mainStage.close();
         musicaStage.show();
+
     }
 }
