@@ -10,10 +10,9 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.beans.XMLEncoder;
+import java.beans.XMLDecoder;
+import java.io.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Scanner;
@@ -41,10 +40,19 @@ public class CreateUView implements Initializable{
     }
     public void saveUser() throws IOException {
         Users uGuardar = new Users(nombreText.getText(), correoText.getText(), provinciaBox.getValue(), contrasenaText.getText());
-        FileWriter archivoUsuario = new FileWriter("Usuarios.txt", true);
-        PrintWriter escritor = new PrintWriter(archivoUsuario);
-        escritor.print(uGuardar.getNameComplete() + "," + uGuardar.getEmail() + "," + uGuardar.getProvi() + "," + uGuardar.getPassword() + "\n");
-        escritor.close();
+
+        FileOutputStream usuariosXML = new FileOutputStream("./usuarios.xml", true);
+        XMLEncoder encoder = new XMLEncoder(usuariosXML);
+        encoder.writeObject(uGuardar);
+        encoder.close();
+        usuariosXML.close();
+
+        FileOutputStream usuarioActualXML = new FileOutputStream("./usuarioActual.xml", false);
+        XMLEncoder encoder2 = new XMLEncoder(usuarioActualXML);
+        encoder2.writeObject(uGuardar);
+        encoder2.close();
+        usuarioActualXML.close();
+
         FXMLLoader musicaFxml = new FXMLLoader(getClass().getResource("musica-view.fxml"));
         Parent musicaParent = musicaFxml.load();
         Stage musicaStage = new Stage();
@@ -54,9 +62,5 @@ public class CreateUView implements Initializable{
         Stage mainStage = (Stage) logFromCrear.getScene().getWindow();
         mainStage.close();
         musicaStage.show();
-        FileWriter archivoUsuarioActual = new FileWriter("UsuarioActual.txt", false);
-        PrintWriter escritor2 = new PrintWriter(archivoUsuarioActual);
-        escritor2.print(uGuardar.getNameComplete() + "," + uGuardar.getEmail() + "," + uGuardar.getProvi() + "," + uGuardar.getPassword());
-        escritor2.close();
     }
 }
