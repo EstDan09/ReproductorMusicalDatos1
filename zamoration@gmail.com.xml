@@ -26,7 +26,7 @@
    <string>password</string>
    <void method="set">
     <object idref="Users0"/>
-    <string>crimnal23</string>
+    <string>lacriminal23</string>
    </void>
   </void>
  </object>

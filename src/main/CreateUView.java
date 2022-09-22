@@ -14,6 +14,21 @@ import java.beans.XMLEncoder;
 import java.beans.XMLDecoder;
 import java.io.*;
 import java.net.URL;
+import javax.xml.parsers.*;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
@@ -28,6 +43,10 @@ public class CreateUView implements Initializable{
     private TextField contrasenaText;
     @FXML
     private Button logFromCrear;
+
+    public CreateUView() throws FileNotFoundException {
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         provinciaBox.getItems().add("San José");
@@ -38,10 +57,10 @@ public class CreateUView implements Initializable{
         provinciaBox.getItems().add("Guanacaste");
         provinciaBox.getItems().add("Limón");
     }
-    public void saveUser() throws IOException {
+    public void saveUser() throws IOException, SAXException, ParserConfigurationException, TransformerException {
         Users uGuardar = new Users(nombreText.getText(), correoText.getText(), provinciaBox.getValue(), contrasenaText.getText());
 
-        FileOutputStream usuariosXML = new FileOutputStream("./usuarios.xml", true);
+        FileOutputStream usuariosXML = new FileOutputStream("./"+correoText.getText()+".xml", false);
         XMLEncoder encoder = new XMLEncoder(usuariosXML);
         encoder.writeObject(uGuardar);
         encoder.close();

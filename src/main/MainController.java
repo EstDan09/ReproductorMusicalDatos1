@@ -11,7 +11,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
+import javax.xml.parsers.*;
+import java.beans.XMLDecoder;
+import java.beans.XMLEncoder;
 import java.io.*;
 import java.net.URL;
 import java.util.*;
@@ -44,41 +50,28 @@ public class MainController {
 
     @FXML
     private void goToMusic() throws IOException {
-        int contadorLinea = 0;
-        Scanner leo = new Scanner(new FileReader("Usuarios.txt"));
-        leo.useDelimiter("[,:\r\n]+");
-        while(leo.hasNext()) {
-            if (contadorLinea == 4) {
-                if (Objects.equals(uValidos.get(1),inicioCorreo.getText()) && Objects.equals(uValidos.get(3),inicioContrasena.getText())){
-                    FXMLLoader musicaFxml = new FXMLLoader(getClass().getResource("musica-view.fxml"));
-                    Parent musicaParent = musicaFxml.load();
-                    Stage musicaStage = new Stage();
-                    musicaStage.setTitle("FE MusicPlayer");
-                    musicaStage.setScene(new Scene(musicaParent));
-                    musicaStage.initModality(Modality.NONE); //se puede borrar
-                    //createUStage.initOwner(crearCuenta.getScene().getWindow());
-                    Stage mainStage = (Stage) crearCuenta.getScene().getWindow();
-                    mainStage.close();
-                    musicaStage.show();
-                    leo.close();
-                    FileWriter archivoUsuarioActual = new FileWriter("UsuarioActual.txt", false);
-                    PrintWriter escritor = new PrintWriter(archivoUsuarioActual);
-                    escritor.print(uValidos.get(0) + "," + uValidos.get(1) + "," + uValidos.get(2) + "," + uValidos.get(3));
-                    escritor.close();
-                    System.out.println(uValidos);
-                    break;
-                }
-                else{
-                    uValidos.clear();
-                    contadorLinea = 0;
-                    leo.nextLine();
-                    System.out.println(uValidos);
-                }
-            }
-            else{
-                uValidos.add(leo.next());
-                contadorLinea++;
-            }
+
+        FileInputStream verificaUsuario = new FileInputStream("./"+inicioCorreo.getText()+".xml");
+        XMLDecoder decoder = new XMLDecoder(verificaUsuario);
+        Users usActual = (Users)decoder.readObject();
+        verificaUsuario.close();
+        if (Objects.equals(inicioContrasena.getText(),usActual.getPassword())){
+
+            FileOutputStream usuarioActualXML = new FileOutputStream("./usuarioActual.xml", false);
+            XMLEncoder encoder2 = new XMLEncoder(usuarioActualXML);
+            encoder2.writeObject(usActual);
+            encoder2.close();
+            usuarioActualXML.close();
+
+            FXMLLoader musicaFxml = new FXMLLoader(getClass().getResource("musica-view.fxml"));
+            Parent musicaParent = musicaFxml.load();
+            Stage musicaStage = new Stage();
+            musicaStage.setTitle("FE MusicPlayer");
+            musicaStage.setScene(new Scene(musicaParent));
+            musicaStage.initModality(Modality.NONE);
+            Stage mainStage = (Stage) crearCuenta.getScene().getWindow();
+            mainStage.close();
+            musicaStage.show();
         }
     }
 }

@@ -4,6 +4,8 @@ import javafx.fxml.Initializable;
 
 import java.beans.XMLDecoder;
 import java.io.*;
+import javax.xml.stream.*;
+
 
 import java.net.URL;
 import java.util.*;
@@ -38,7 +40,6 @@ public class MusicaView implements Initializable {
 
     private File directorio;
     private File[] archivos;
-
     private ArrayList<File> rolas;
     private int numRola;
     private boolean running;
@@ -72,7 +73,9 @@ public class MusicaView implements Initializable {
         reproductorHD = new MediaPlayer(soniditos);
     }
     public void playSong(){
-        reproductorHD.play();
+        //reproductorHD.play();
+        Playlist pipiribao = new Playlist();
+
     }
     public void pauseSong(){
     }
