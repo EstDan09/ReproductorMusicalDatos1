@@ -75,6 +75,7 @@ public class MusicaView implements Initializable {
     public void playSong(){
         //reproductorHD.play();
         Playlist pipiribao = new Playlist();
+        pipiribao.insertFirst();
 
     }
     public void pauseSong(){
