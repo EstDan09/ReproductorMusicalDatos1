@@ -8,6 +8,10 @@ import java.util.LinkedList;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * Clase Users
+ */
+
 public class Users implements Serializable {
     public String nameComplete;
     public String email;
@@ -17,7 +21,9 @@ public class Users implements Serializable {
 
     public Users() {
     }
-
+    /**
+     * Método constructor de la clase Users
+     */
     public Users(String nameComplete, String email, String provi, String password) {
         this.nameComplete = nameComplete;
         this.email = email;
@@ -25,6 +31,9 @@ public class Users implements Serializable {
         this.password = password;
     }
 
+    /**
+     * Métodos setters and getters
+     */
     public String getNameComplete() {
         return nameComplete;
     }

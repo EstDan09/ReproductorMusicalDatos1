@@ -3,6 +3,9 @@ package main;
 import java.io.File;
 import java.io.Serializable;
 
+/**
+ * Clase Node para alimentar la Lista Doblemente Enlazada Circular
+ */
 public class Node implements Serializable {
     public File cancion;
     public String nameS;
@@ -17,18 +20,23 @@ public class Node implements Serializable {
     public Node(){
     }
 
-    public  Node (File cancion, String nameS, String artista, String album, String lyrics, String year) {
+    /**
+     * Método constructor
+     */
+    public  Node (File cancion) {
         this.cancion = cancion;
-        this.nameS  = nameS;
+        //this.nameS  = nameS;
         this.next = null;
         this.prev = null;
-        this.artista = artista;
-        this.album = album;
-        this.lyrics = lyrics;
-        this.year = year;
+        //this.artista = artista;
+        //this.album = album;
+        //this.lyrics = lyrics;
+        //this.year = year;
         this.fave = false;
     }
-
+    /**
+     * Metodos setters and getter
+     */
     public File getCancion() {
         return cancion;
     }

@@ -3,26 +3,35 @@ package main;
 import java.io.File;
 import java.util.ArrayList;
 
+/**
+ * Clase Lista Doblemente Enlazada Circular
+ */
 public class Playlist {
     public Node head;
     public Node tail;
     public Node current;
     public int size;
 
-
+    /**
+     * Método constructor
+     */
     public Playlist() {
         this.head = null;
         this.tail = null;
         this.current = null;
         this.size = 0;
     }
-
+    /**
+     * Método para obtener el tamaño de la lista
+     */
     public int getSize() {
         return size;
     }
-
-    public void appendItem(File cancion, String nameS, String artista, String album, String lyrics, String year) {
-        Node nuevaAdd = new Node(cancion, nameS, artista, album, lyrics, year);
+    /**
+     * Método para añadir elementos a la lista
+     */
+    public void appendItem(File cancion) {
+        Node nuevaAdd = new Node(cancion);
         if (head == null) {
             head = nuevaAdd;
             nuevaAdd.next = head;
@@ -40,10 +49,14 @@ public class Playlist {
             size++;
         }
     }
-
+    /**
+     * Método para borrar el último elemento de la lista
+     */
     public void deleteLast(){
     }
-
+    /**
+     * Método para mostrar los elementos de la lista
+     */
     public void showPlaylist() {
         Node carro = head;
         int breaker = 0;
@@ -53,22 +66,30 @@ public class Playlist {
             carro = carro.next;
         }
     }
-
+    /**
+     * Método para mover al inicio de la lista el Nodo Current
+     */
     public void moveToStartCurrent(){
 
         current = head;
     }
-
+    /**
+     * Método para mover al final de la lista el Nodo Current
+     */
     public void moveToEndCurrent(){
 
         current = tail;
     }
-
+    /**
+     * Método para mover para adelante en la lista el Nodo Current
+     */
     public void moveForwardCurrent(){
 
         current = current.next;
     }
-
+    /**
+     * Método para mover para atrás en la lista el Nodo Current
+     */
     public void moveBackCurrent(){
 
         current = current.prev;

@@ -24,6 +24,9 @@ import java.io.*;
 import java.net.URL;
 import java.util.*;
 
+/**
+ * Clase MainController para manejar las funciones de la primera ventana que genera la aplicación
+ */
 public class MainController {
     public List<String> uValidos = new ArrayList<>();
     @FXML
@@ -51,6 +54,9 @@ public class MainController {
         mainStage.close();
         createUStage.show();
     }
+    /**
+     * Método goToMusic para verificar si el usuario puede ingresar a la aplicación
+     */
 
     @FXML
     private void goToMusic() throws IOException {

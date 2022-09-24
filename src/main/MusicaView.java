@@ -52,10 +52,16 @@ public class MusicaView implements Initializable {
     public File archivo;
     public Playlist testing = new Playlist();
 
+    /**
+     * Clase cargarArchivo para que el usuario pueda cargar archivos para sus playlist
+     */
     @FXML
     private void cargarArchivo(MouseEvent event) {
         archivo = seleccionador.showOpenDialog(new Stage());
     }
+    /**
+     * Método que carga la información del usuario para su pantalla de inicio
+     */
     @Override
     public void initialize (URL url, ResourceBundle resourceBundle) {
         try {
@@ -73,7 +79,7 @@ public class MusicaView implements Initializable {
 
             if(archivos != null){
                 for(File file : archivos){
-                    //testing.appendItem(file);
+                    testing.appendItem(file);
 
                 }
                 testing.showPlaylist();
@@ -87,17 +93,28 @@ public class MusicaView implements Initializable {
         }
 
     }
-
+    /**
+     * Método playSong para reproducir la primera canción de la playlist
+     */
     public void playSong(){
         reproductorHD.play();
     }
+    /**
+     * Método pauseSong para pausar la canción
+     */
     public void pauseSong(){
         reproductorHD.pause();
     }
+    /**
+     * Método resetSong para reiniciar la canción
+     */
     public void resetSong(){
         reproductorHD.seek(Duration.seconds(0));
         reproductorHD.play();
     }
+    /**
+     * Método prevSong para ir a la canción anterior
+     */
     public void prevSong(){
         reproductorHD.stop();
         testing.moveBackCurrent();
@@ -105,6 +122,9 @@ public class MusicaView implements Initializable {
         reproductorHD = new MediaPlayer(soniditos);
         reproductorHD.play();
     }
+    /**
+     * Método nextSong para ir a la canción siguiente
+     */
     public void nextSong(){
         reproductorHD.stop();
         testing.moveForwardCurrent();
@@ -112,6 +132,9 @@ public class MusicaView implements Initializable {
         reproductorHD = new MediaPlayer(soniditos);
         reproductorHD.play();
     }
+    /**
+     * Método para crear playlist
+     */
     public void createPlaylist(){
 
     }

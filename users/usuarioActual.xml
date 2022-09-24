@@ -5,14 +5,14 @@
    <string>nameComplete</string>
    <void method="set">
     <object idref="Users0"/>
-    <string>Fabiana Zamora</string>
+    <string>Monserrat Zamora</string>
    </void>
   </void>
   <void class="main.Users" method="getField">
    <string>email</string>
    <void method="set">
     <object idref="Users0"/>
-    <string>zamoration@gmail.com</string>
+    <string>monsini@gmail.com</string>
    </void>
   </void>
   <void class="main.Users" method="getField">

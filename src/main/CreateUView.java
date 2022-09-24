@@ -32,6 +32,9 @@ import java.util.Collection;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
+/**
+ * Clase CreateUView para controlar la ventana de crear usuario
+ */
 public class CreateUView implements Initializable{
     @FXML
     private ChoiceBox<String> provinciaBox;
@@ -46,7 +49,9 @@ public class CreateUView implements Initializable{
 
     public CreateUView() throws FileNotFoundException {
     }
-
+    /**
+     * Método initialize para precargar los elementos a utilizar en la ventana de crear usuarios
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         provinciaBox.getItems().add("San José");
@@ -57,6 +62,9 @@ public class CreateUView implements Initializable{
         provinciaBox.getItems().add("Guanacaste");
         provinciaBox.getItems().add("Limón");
     }
+    /**
+     * Método saveUser para registrar usuarios nuevos a la aplicación
+     */
     public void saveUser() throws IOException, SAXException, ParserConfigurationException, TransformerException {
         Users uGuardar = new Users(nombreText.getText(), correoText.getText(), provinciaBox.getValue(), contrasenaText.getText());
 
