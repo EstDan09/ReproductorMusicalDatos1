@@ -1,5 +1,6 @@
 package main;
 
+import javax.xml.transform.stream.StreamResult;
 import java.io.File;
 import java.io.Serializable;
 
@@ -23,15 +24,15 @@ public class Node implements Serializable {
     /**
      * Método constructor
      */
-    public  Node (File cancion) {
+    public  Node (File cancion, String nameS, String artista, String album, String lyrics, String year) {
         this.cancion = cancion;
-        //this.nameS  = nameS;
+        this.nameS  = nameS;
         this.next = null;
         this.prev = null;
-        //this.artista = artista;
-        //this.album = album;
-        //this.lyrics = lyrics;
-        //this.year = year;
+        this.artista = artista;
+        this.album = album;
+        this.lyrics = lyrics;
+        this.year = year;
         this.fave = false;
     }
     /**

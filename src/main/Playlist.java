@@ -30,8 +30,8 @@ public class Playlist {
     /**
      * Método para añadir elementos a la lista
      */
-    public void appendItem(File cancion) {
-        Node nuevaAdd = new Node(cancion);
+    public void appendItem(File cancion, String nameS, String artista, String album, String lyrics, String year) {
+        Node nuevaAdd = new Node(cancion, nameS, artista, album, lyrics, year);
         if (head == null) {
             head = nuevaAdd;
             nuevaAdd.next = head;
