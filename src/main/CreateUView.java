@@ -60,13 +60,13 @@ public class CreateUView implements Initializable{
     public void saveUser() throws IOException, SAXException, ParserConfigurationException, TransformerException {
         Users uGuardar = new Users(nombreText.getText(), correoText.getText(), provinciaBox.getValue(), contrasenaText.getText());
 
-        FileOutputStream usuariosXML = new FileOutputStream("./"+correoText.getText()+".xml", false);
+        FileOutputStream usuariosXML = new FileOutputStream(".\\users\\"+correoText.getText()+".xml", false);
         XMLEncoder encoder = new XMLEncoder(usuariosXML);
         encoder.writeObject(uGuardar);
         encoder.close();
         usuariosXML.close();
 
-        FileOutputStream usuarioActualXML = new FileOutputStream("./usuarioActual.xml", false);
+        FileOutputStream usuarioActualXML = new FileOutputStream(".\\users\\usuarioActual.xml", false);
         XMLEncoder encoder2 = new XMLEncoder(usuarioActualXML);
         encoder2.writeObject(uGuardar);
         encoder2.close();

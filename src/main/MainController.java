@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.w3c.dom.Document;
@@ -16,6 +17,7 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.*;
+import java.awt.event.MouseEvent;
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
 import java.io.*;
@@ -32,7 +34,9 @@ public class MainController {
     private Button iSesion;
     @FXML
     private Button crearCuenta;
-
+    private File directorio;
+    private File[] archivos;
+    private ArrayList<File> rolas;
 
     @FXML
     private void goToCrear() throws IOException {
@@ -51,13 +55,14 @@ public class MainController {
     @FXML
     private void goToMusic() throws IOException {
 
-        FileInputStream verificaUsuario = new FileInputStream("./"+inicioCorreo.getText()+".xml");
+        FileInputStream verificaUsuario = new FileInputStream(".\\users\\"+inicioCorreo.getText()+".xml");
         XMLDecoder decoder = new XMLDecoder(verificaUsuario);
         Users usActual = (Users)decoder.readObject();
         verificaUsuario.close();
+
         if (Objects.equals(inicioContrasena.getText(),usActual.getPassword())){
 
-            FileOutputStream usuarioActualXML = new FileOutputStream("./usuarioActual.xml", false);
+            FileOutputStream usuarioActualXML = new FileOutputStream(".\\users\\usuarioActual.xml", false);
             XMLEncoder encoder2 = new XMLEncoder(usuarioActualXML);
             encoder2.writeObject(usActual);
             encoder2.close();

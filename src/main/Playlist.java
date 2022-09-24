@@ -1,13 +1,83 @@
 package main;
 
+import java.io.File;
+import java.util.ArrayList;
+
 public class Playlist {
-    private Song head;
-    private int size;
+    public Node head;
+    public Node tail;
+    public Node current;
+    public int size;
+
 
     public Playlist() {
         this.head = null;
+        this.tail = null;
+        this.current = null;
         this.size = 0;
     }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void appendItem(File cancion, String nameS, String artista, String album, String lyrics, String year) {
+        Node nuevaAdd = new Node(cancion, nameS, artista, album, lyrics, year);
+        if (head == null) {
+            head = nuevaAdd;
+            nuevaAdd.next = head;
+            nuevaAdd.prev = head;
+            tail = nuevaAdd;
+            current = head;
+            size++;
+        } else {
+            Node ultimo = head.prev;
+            tail.next = nuevaAdd;
+            nuevaAdd.next = head;
+            tail = nuevaAdd;
+            head.prev = tail;
+            tail.prev = ultimo;
+            size++;
+        }
+    }
+
+    public void deleteLast(){
+    }
+
+    public void showPlaylist() {
+        Node carro = head;
+        int breaker = 0;
+        while (breaker < this.size){
+            breaker++;
+            System.out.println(carro.getCancion());
+            carro = carro.next;
+        }
+    }
+
+    public void moveToStartCurrent(){
+
+        current = head;
+    }
+
+    public void moveToEndCurrent(){
+
+        current = tail;
+    }
+
+    public void moveForwardCurrent(){
+
+        current = current.next;
+    }
+
+    public void moveBackCurrent(){
+
+        current = current.prev;
+    }
+}
+
+
+
+/*
 
     public boolean isEmpty() {
         return this.head == null;
@@ -17,8 +87,8 @@ public class Playlist {
         return this.size;
     }
 
-    public void insertFirst(Object data) {
-        Song newSong = new Song(data);
+    public void insertFirst(File rola) {
+        Song newSong = new Song(rola);
         newSong.next = this.head;
         newSong.previous = this.head;
         this.head = newSong;
@@ -46,10 +116,9 @@ public class Playlist {
         while(current != null) {
             //Prints each node by incrementing the pointer.
 
-            System.out.print(current.data + " ");
+            System.out.print(current.rola + " ");
             current = current.next;
         }
     }
 
-
-}
+/*/
