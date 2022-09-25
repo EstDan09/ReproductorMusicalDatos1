@@ -45,6 +45,8 @@ public class MusicaView implements Initializable {
     @FXML
     private Button searchButton1;
     @FXML
+    private Button playlistsButton;
+    @FXML
     private Label tebiLabel;
     @FXML
     private Label songLabel;
@@ -191,5 +193,7 @@ public class MusicaView implements Initializable {
 
     }
 
-    public void cambiar
+    public void cambiarPlaylist(){
+
+    }
 }
