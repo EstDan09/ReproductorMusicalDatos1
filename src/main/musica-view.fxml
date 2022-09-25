@@ -37,7 +37,7 @@
                   <Image url="@../libreria.png" />
                </image>
             </ImageView>
-            <Button fx:id="libButton" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Library" textFill="WHITE">
+            <Button fx:id="crearPLButton" mnemonicParsing="false" onAction="#goToCreatePL" style="-fx-background-color: transparent;" text="Crear Playlist" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Black" size="18.0" />
                </font>
@@ -50,7 +50,7 @@
                   <Image url="@../playlists.png" />
                </image>
             </ImageView>
-            <Button fx:id="playlistsButton" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Playlists" textFill="WHITE">
+            <Button fx:id="playlistsButton" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Cambiar Playlist" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Black" size="18.0" />
                </font>
@@ -112,17 +112,17 @@
                                  </font>
                               </Button>
                               <ProgressBar fx:id="progBar" layoutX="238.0" layoutY="179.0" prefHeight="20.0" prefWidth="287.0" progress="0.0" />
-                              <Label layoutX="359.0" layoutY="35.0" style="-fx-font-style: #fff;" text="Song" textFill="#f2f0f0">
+                              <Label fx:id="songLabel" layoutX="359.0" layoutY="35.0" style="-fx-font-style: #fff;" text="Song" textFill="#f2f0f0">
                                  <font>
                                     <Font name="Segoe UI Black" size="18.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="355.0" layoutY="74.0" style="-fx-font-style: #fff;" text="Artist" textFill="#f2f0f0">
+                              <Label fx:id="artistLabel" layoutX="355.0" layoutY="74.0" style="-fx-font-style: #fff;" text="Artist" textFill="#f2f0f0">
                                  <font>
                                     <Font name="Segoe UI Black" size="18.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="352.0" layoutY="110.0" style="-fx-font-style: #fff;" text="Album" textFill="#f2f0f0">
+                              <Label fx:id="albumLabel" layoutX="352.0" layoutY="110.0" style="-fx-font-style: #fff;" text="Album" textFill="#f2f0f0">
                                  <font>
                                     <Font name="Segoe UI Black" size="18.0" />
                                  </font>
@@ -130,7 +130,7 @@
                            </children></AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="181.0" prefWidth="736.0" style="-fx-background-color: #bec8b8#bec8b8;">
                            <children>
-                              <Label layoutX="33.0" layoutY="26.0" style="-fx-font-style: #fff;" text="Playlist" textFill="#f2f0f0">
+                              <Label fx:id="playlistLabel" layoutX="33.0" layoutY="26.0" style="-fx-font-style: #fff;" text="Playlist" textFill="#f2f0f0">
                                  <font>
                                     <Font name="Segoe UI Black" size="18.0" />
                                  </font>

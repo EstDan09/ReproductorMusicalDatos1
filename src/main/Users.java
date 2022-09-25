@@ -4,6 +4,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.io.Serializable;
 import java.util.List;
@@ -17,8 +19,6 @@ public class Users implements Serializable {
     public String email;
     public String provi;
     public String password;
-    public List<String> playlist;
-
     public Users() {
     }
     /**
@@ -62,15 +62,5 @@ public class Users implements Serializable {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
-    public List<String> getPlaylist() {
-        return playlist;
-    }
-
-    public void setPlaylist(List<String> playlist) {
-        this.playlist = playlist;
-    }
 }

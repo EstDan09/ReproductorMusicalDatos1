@@ -1,21 +1,27 @@
 package main;
 
 import java.io.File;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Clase Lista Doblemente Enlazada Circular
  */
-public class Playlist {
+public class Playlist implements Serializable {
+    public String tag;
     public Node head;
     public Node tail;
     public Node current;
-    public int size;
+    public Integer size;
 
     /**
      * Método constructor
      */
-    public Playlist() {
+    public Playlist(){
+
+    }
+    public Playlist(String tag) {
+        this.tag = tag;
         this.head = null;
         this.tail = null;
         this.current = null;
@@ -24,13 +30,50 @@ public class Playlist {
     /**
      * Método para obtener el tamaño de la lista
      */
-    public int getSize() {
+    public String getTag() {
+        return tag;
+    }
+
+    public void setTag(String tag) {
+        this.tag = tag;
+    }
+
+    public Node getHead() {
+        return head;
+    }
+
+    public void setHead(Node head) {
+        this.head = head;
+    }
+
+    public Node getTail() {
+        return tail;
+    }
+
+    public void setTail(Node tail) {
+        this.tail = tail;
+    }
+
+    public Node getCurrent() {
+        return current;
+    }
+
+    public void setCurrent(Node current) {
+        this.current = current;
+    }
+
+    public Integer getSize() {
         return size;
     }
+
+    public void setSize(Integer size) {
+        this.size = size;
+    }
+
     /**
      * Método para añadir elementos a la lista
      */
-    public void appendItem(File cancion, String nameS, String artista, String album, String lyrics, String year) {
+    public void appendItem(String cancion, String nameS, String artista, String album, String lyrics, String year) {
         Node nuevaAdd = new Node(cancion, nameS, artista, album, lyrics, year);
         if (head == null) {
             head = nuevaAdd;
@@ -62,7 +105,8 @@ public class Playlist {
         int breaker = 0;
         while (breaker < this.size){
             breaker++;
-            System.out.println(carro.getCancion());
+            System.out.println(carro.getCancion()+" - "+carro.getNameS()+" - "+carro.getArtista()+" - "+carro.getAlbum()+" - "+carro.getLyrics()+" - "+
+                    carro.getYear());
             carro = carro.next;
         }
     }

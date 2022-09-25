@@ -8,7 +8,7 @@ import java.io.Serializable;
  * Clase Node para alimentar la Lista Doblemente Enlazada Circular
  */
 public class Node implements Serializable {
-    public File cancion;
+    public String cancion;
     public String nameS;
     public Node next;
     public Node prev;
@@ -24,7 +24,7 @@ public class Node implements Serializable {
     /**
      * Método constructor
      */
-    public  Node (File cancion, String nameS, String artista, String album, String lyrics, String year) {
+    public  Node (String cancion, String nameS, String artista, String album, String lyrics, String year) {
         this.cancion = cancion;
         this.nameS  = nameS;
         this.next = null;
@@ -38,12 +38,20 @@ public class Node implements Serializable {
     /**
      * Metodos setters and getter
      */
-    public File getCancion() {
+    public String getCancion() {
         return cancion;
     }
 
-    public void setCancion(File cancion) {
+    public void setCancion(String cancion) {
         this.cancion = cancion;
+    }
+
+    public String getNameS() {
+        return nameS;
+    }
+
+    public void setNameS(String nameS) {
+        this.nameS = nameS;
     }
 
     public Node getNext() {
@@ -84,6 +92,14 @@ public class Node implements Serializable {
 
     public void setLyrics(String lyrics) {
         this.lyrics = lyrics;
+    }
+
+    public String getYear() {
+        return year;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
     }
 
     public Boolean getFave() {

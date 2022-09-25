@@ -1,5 +1,10 @@
 package main;
 
+import java.io.PrintWriter;
+import java.net.URL;
+import java.util.ResourceBundle;
+import java.util.Scanner;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -79,6 +84,9 @@ public class CreateUView implements Initializable{
         encoder2.writeObject(uGuardar);
         encoder2.close();
         usuarioActualXML.close();
+
+        FileWriter playlistTagger = new FileWriter(".\\playlistsUsers\\"+uGuardar.getEmail()+".xml", true);
+
 
         FXMLLoader musicaFxml = new FXMLLoader(getClass().getResource("musica-view.fxml"));
         Parent musicaParent = musicaFxml.load();
