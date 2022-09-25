@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -50,7 +51,7 @@
                   <Image url="@../playlists.png" />
                </image>
             </ImageView>
-            <Button fx:id="playlistsButton" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Cambiar Playlist" textFill="WHITE">
+            <Button fx:id="playlistsButton" mnemonicParsing="false" onAction="#cambiarPlaylist" style="-fx-background-color: transparent;" text="Cambiar Playlist" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Black" size="18.0" />
                </font>
@@ -101,7 +102,7 @@
                                     <Font name="Segoe UI Black" size="13.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="likeButton" layoutX="168.0" layoutY="227.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Like" textFill="WHITE">
+                              <Button fx:id="likeButton" layoutX="168.0" layoutY="227.0" mnemonicParsing="false" onAction="#likear" style="-fx-background-color: transparent;" text="Like" textFill="WHITE">
                                  <font>
                                     <Font name="Segoe UI Black" size="13.0" />
                                  </font>
@@ -127,14 +128,58 @@
                                     <Font name="Segoe UI Black" size="18.0" />
                                  </font>
                               </Label>
+                              <Label fx:id="estadoLabel" layoutX="25.0" layoutY="101.0" text="Estado" textFill="WHITE">
+                                 <font>
+                                    <Font name="Segoe UI Black" size="13.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="eestadooLabel" contentDisplay="CENTER" layoutX="33.0" layoutY="127.0" text=".." textFill="WHITE">
+                                 <font>
+                                    <Font name="Segoe UI Black" size="11.0" />
+                                 </font></Label>
                            </children></AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="181.0" prefWidth="736.0" style="-fx-background-color: #bec8b8#bec8b8;">
                            <children>
-                              <Label fx:id="playlistLabel" layoutX="33.0" layoutY="26.0" style="-fx-font-style: #fff;" text="Playlist" textFill="#f2f0f0">
+                              <Label fx:id="playlistLabel" layoutX="81.0" layoutY="116.0" style="-fx-font-style: #fff;" text="..." textFill="#f2f0f0">
+                                 <font>
+                                    <Font name="Segoe UI Black" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="29.0" layoutY="36.0" text="Playlist actual:" textFill="#a9a5a5">
                                  <font>
                                     <Font name="Segoe UI Black" size="18.0" />
                                  </font>
                               </Label>
+                              <Label layoutX="433.0" layoutY="21.0" text="Editar información de canción" textFill="#a9a5a5">
+                                 <font>
+                                    <Font name="Segoe UI Black" size="17.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="editName" alignment="CENTER" layoutX="432.0" layoutY="56.0" opacity="0.76" prefWidth="251.0" promptText="editar nombre">
+                                 <font>
+                                    <Font name="Segoe UI Black" size="11.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="editArtist" alignment="CENTER" layoutX="432.0" layoutY="98.0" opacity="0.76" prefWidth="251.0" promptText="editar artista">
+                                 <font>
+                                    <Font name="Segoe UI Black" size="11.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="editAlbum" alignment="CENTER" layoutX="432.0" layoutY="142.0" opacity="0.76" prefWidth="251.0" promptText="editar album">
+                                 <font>
+                                    <Font name="Segoe UI Black" size="11.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="editYear" alignment="CENTER" layoutX="432.0" layoutY="182.0" opacity="0.76" prefWidth="251.0" promptText="editar año">
+                                 <font>
+                                    <Font name="Segoe UI Black" size="11.0" />
+                                 </font>
+                              </TextField>
+                              <Button fx:id="editButton" contentDisplay="CENTER" layoutX="532.0" layoutY="232.0" mnemonicParsing="false" onAction="#editar" style="-fx-background-color: transparente;" text="Editar!" textFill="#595858">
+                                 <font>
+                                    <Font name="Segoe UI Black" size="11.0" />
+                                 </font>
+                              </Button>
                            </children></AnchorPane>
                     </items>
                   </SplitPane>

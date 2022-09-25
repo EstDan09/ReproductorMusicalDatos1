@@ -69,7 +69,7 @@
             <string>nameS</string>
             <void method="set">
              <object idref="Node2"/>
-             <string>It&apos;s Time</string>
+             <string>es hora</string>
             </void>
            </void>
            <void class="main.Node" method="getField">
@@ -346,14 +346,14 @@
             <string>artista</string>
             <void method="set">
              <object idref="Node2"/>
-             <string>Imagine Dragons</string>
+             <string>imagine dragons</string>
             </void>
            </void>
            <void class="main.Node" method="getField">
             <string>album</string>
             <void method="set">
              <object idref="Node2"/>
-             <string>Night Visions</string>
+             <string>night visions</string>
             </void>
            </void>
            <void class="main.Node" method="getField">
@@ -367,14 +367,14 @@
             <string>year</string>
             <void method="set">
              <object idref="Node2"/>
-             <string>2012</string>
+             <string>2000</string>
             </void>
            </void>
            <void class="main.Node" method="getField">
             <string>fave</string>
             <void method="set">
              <object idref="Node2"/>
-             <boolean>false</boolean>
+             <boolean>true</boolean>
             </void>
            </void>
           </object>
@@ -481,7 +481,7 @@
    <string>current</string>
    <void method="set">
     <object idref="Playlist0"/>
-    <object idref="Node0"/>
+    <object idref="Node2"/>
    </void>
   </void>
   <void class="main.Playlist" method="getField">

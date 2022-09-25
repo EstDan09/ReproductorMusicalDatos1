@@ -144,7 +144,7 @@
       <string>fave</string>
       <void method="set">
        <object idref="Node0"/>
-       <boolean>false</boolean>
+       <boolean>true</boolean>
       </void>
      </void>
     </object>

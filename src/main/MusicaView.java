@@ -5,11 +5,13 @@ import javafx.fxml.Initializable;
 
 import java.awt.event.MouseEvent;
 import java.beans.XMLDecoder;
+import java.beans.XMLEncoder;
 import java.io.*;
 import javax.xml.stream.*;
 
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 
 import java.net.URL;
@@ -47,6 +49,10 @@ public class MusicaView implements Initializable {
     @FXML
     private Button playlistsButton;
     @FXML
+    private Button likeButton;
+    @FXML
+    private Button editButton;
+    @FXML
     private Label tebiLabel;
     @FXML
     private Label songLabel;
@@ -56,6 +62,12 @@ public class MusicaView implements Initializable {
     private Label albumLabel;
     @FXML
     private Label playlistLabel;
+    @FXML
+    private Label eestadooLabel;
+    @FXML
+    private TextField editName, editArtist, editAlbum, editYear;
+
+
 
 
     private File directorio;
@@ -69,6 +81,7 @@ public class MusicaView implements Initializable {
     private File archivo;
     private List<String> listasDisponibles = new ArrayList<>();
     private Playlist testing = new Playlist("Num1", "run");
+    private int cambio = 0;
 
     /**
      * Clase cargarArchivo para que el usuario pueda cargar archivos para sus playlist
@@ -117,6 +130,13 @@ public class MusicaView implements Initializable {
                 reproductorHD = new MediaPlayer(soniditos);
             }
 
+            if (testing.current.getFave() == true){
+                eestadooLabel.setText("Favorita!");
+            }
+            else {
+                eestadooLabel.setText("No favorita :(");
+            }
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -143,6 +163,13 @@ public class MusicaView implements Initializable {
         albumLabel.setText(testing.current.getAlbum());
         playlistLabel.setText(testing.getTag());
 
+        if (testing.current.getFave() == true){
+            eestadooLabel.setText("Favorita!");
+        }
+        else {
+            eestadooLabel.setText("No favorita :(");
+        }
+
     }
     /**
      * Método pauseSong para pausar la canción
@@ -152,6 +179,13 @@ public class MusicaView implements Initializable {
         songLabel.setText(testing.current.getNameS());
         artistLabel.setText(testing.current.getArtista());
         albumLabel.setText(testing.current.getAlbum());
+
+        if (testing.current.getFave() == true){
+            eestadooLabel.setText("Favorita!");
+        }
+        else {
+            eestadooLabel.setText("No favorita :(");
+        }
     }
     /**
      * Método resetSong para reiniciar la canción
@@ -159,6 +193,13 @@ public class MusicaView implements Initializable {
     public void resetSong(){
         reproductorHD.seek(Duration.seconds(0));
         reproductorHD.play();
+
+        if (testing.current.getFave() == true){
+            eestadooLabel.setText("Favorita!");
+        }
+        else {
+            eestadooLabel.setText("No favorita :(");
+        }
     }
     /**
      * Método prevSong para ir a la canción anterior
@@ -172,6 +213,13 @@ public class MusicaView implements Initializable {
         songLabel.setText(testing.current.getNameS());
         artistLabel.setText(testing.current.getArtista());
         albumLabel.setText(testing.current.getAlbum());
+
+        if (testing.current.getFave() == true){
+            eestadooLabel.setText("Favorita!");
+        }
+        else {
+            eestadooLabel.setText("No favorita :(");
+        }
     }
     /**
      * Método nextSong para ir a la canción siguiente
@@ -185,6 +233,13 @@ public class MusicaView implements Initializable {
         songLabel.setText(testing.current.getNameS());
         artistLabel.setText(testing.current.getArtista());
         albumLabel.setText(testing.current.getAlbum());
+
+        if (testing.current.getFave() == true){
+            eestadooLabel.setText("Favorita!");
+        }
+        else {
+            eestadooLabel.setText("No favorita :(");
+        }
     }
     /**
      * Método para crear playlist
@@ -193,7 +248,114 @@ public class MusicaView implements Initializable {
 
     }
 
-    public void cambiarPlaylist(){
+    public void cambiarPlaylist() throws IOException {
+        reproductorHD.stop();
+
+        if((cambio+1) == listasDisponibles.size()){
+            cambio = 0;
+            FileInputStream xmlAso = new FileInputStream(".\\playlists\\"+listasDisponibles.get(cambio)+".xml");
+            XMLDecoder decoder2 = new XMLDecoder(xmlAso);
+            Playlist test2 = (Playlist) decoder2.readObject();
+            xmlAso.close();
+
+            FileOutputStream papaJones2 = new FileOutputStream(".\\playlistActual\\playlistActual.xml", false);
+            XMLEncoder encoderPAPA2 = new XMLEncoder(papaJones2);
+            encoderPAPA2.writeObject(test2);
+            encoderPAPA2.close();
+            papaJones2.close();
+
+            testing = test2;
+
+            soniditos = new Media(testing.current.getCancion());
+            reproductorHD = new MediaPlayer(soniditos);
+            songLabel.setText(testing.current.getNameS());
+            artistLabel.setText(testing.current.getArtista());
+            albumLabel.setText(testing.current.getAlbum());
+            playlistLabel.setText(testing.getTag());
+            reproductorHD.play();
+
+
+        }
+        else {
+            System.out.println(cambio);
+            cambio++;
+            FileInputStream xmlAso = new FileInputStream(".\\playlists\\"+listasDisponibles.get(cambio)+".xml");
+            XMLDecoder decoder5 = new XMLDecoder(xmlAso);
+            Playlist test5 = (Playlist) decoder5.readObject();
+            xmlAso.close();
+
+
+
+            FileOutputStream papaJones5 = new FileOutputStream(".\\playlistActual\\playlistActual.xml", false);
+            XMLEncoder encoderPAPA5 = new XMLEncoder(papaJones5);
+            encoderPAPA5.writeObject(test5);
+            encoderPAPA5.close();
+            papaJones5.close();
+
+            testing = test5;
+
+            soniditos = new Media(testing.current.getCancion());
+            reproductorHD = new MediaPlayer(soniditos);
+            songLabel.setText(testing.current.getNameS());
+            artistLabel.setText(testing.current.getArtista());
+            albumLabel.setText(testing.current.getAlbum());
+            playlistLabel.setText(testing.getTag());
+            reproductorHD.play();
+
+        }
 
     }
+
+    public void likear() throws IOException {
+        if (testing.current.getFave() == false){
+            testing.current.setFave(true);
+
+            FileOutputStream papaJones2 = new FileOutputStream(".\\playlistActual\\playlistActual.xml", false);
+            XMLEncoder encoderPAPA2 = new XMLEncoder(papaJones2);
+            encoderPAPA2.writeObject(testing);
+            encoderPAPA2.close();
+            papaJones2.close();
+
+            FileOutputStream mamaJones = new FileOutputStream(".\\playlists\\"+testing.getTag()+".xml", false);
+            XMLEncoder mamitaJones = new XMLEncoder(mamaJones);
+            mamitaJones.writeObject(testing);
+            mamitaJones.close();
+            mamaJones.close();
+        }
+        else{
+            testing.current.setFave(false);
+
+            FileOutputStream papaJones2 = new FileOutputStream(".\\playlistActual\\playlistActual.xml", false);
+            XMLEncoder encoderPAPA2 = new XMLEncoder(papaJones2);
+            encoderPAPA2.writeObject(testing);
+            encoderPAPA2.close();
+            papaJones2.close();
+
+            FileOutputStream papaJonesA= new FileOutputStream(".\\playlists\\"+testing.getTag()+".xml", false);
+            XMLEncoder encoderPAPAA = new XMLEncoder(papaJonesA);
+            encoderPAPAA.writeObject(testing);
+            encoderPAPAA.close();
+            papaJonesA.close();
+        }
+
+    }
+    public void editar() throws IOException {
+        testing.current.setNameS(editName.getText());
+        testing.current.setArtista(editArtist.getText());
+        testing.current.setAlbum(editAlbum.getText());
+        testing.current.setYear(editYear.getText());
+
+        FileOutputStream papaJones2 = new FileOutputStream(".\\playlistActual\\playlistActual.xml", false);
+        XMLEncoder encoderPAPA2 = new XMLEncoder(papaJones2);
+        encoderPAPA2.writeObject(testing);
+        encoderPAPA2.close();
+        papaJones2.close();
+
+        FileOutputStream papaJonesA= new FileOutputStream(".\\playlists\\"+testing.getTag()+".xml", false);
+        XMLEncoder encoderPAPAA = new XMLEncoder(papaJonesA);
+        encoderPAPAA.writeObject(testing);
+        encoderPAPAA.close();
+        papaJonesA.close();
+    }
+
 }
