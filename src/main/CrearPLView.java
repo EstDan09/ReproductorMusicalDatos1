@@ -58,6 +58,7 @@ public class CrearPLView {
         Playlist test = (Playlist) decoder2.readObject();
         xmlAso.close();
         test.showPlaylist();
+
         System.out.println("---------------------");
         musiquita.showPlaylist();
 

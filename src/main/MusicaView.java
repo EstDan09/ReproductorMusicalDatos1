@@ -5,6 +5,7 @@ import javafx.fxml.Initializable;
 
 import java.awt.event.MouseEvent;
 import java.beans.XMLDecoder;
+import java.beans.XMLEncoder;
 import java.io.*;
 import javax.xml.stream.*;
 
@@ -69,6 +70,7 @@ public class MusicaView implements Initializable {
     private File archivo;
     private List<String> listasDisponibles = new ArrayList<>();
     private Playlist testing = new Playlist("Num1", "run");
+    private int cambio = 0;
 
     /**
      * Clase cargarArchivo para que el usuario pueda cargar archivos para sus playlist
@@ -193,7 +195,69 @@ public class MusicaView implements Initializable {
 
     }
 
-    public void cambiarPlaylist(){
+    public void cambiarPlaylist() throws IOException {
+        reproductorHD.stop();
+
+        System.out.println(listasDisponibles.size());
+
+        if((cambio+1) == listasDisponibles.size()){
+            cambio = 0;
+            FileInputStream xmlAso = new FileInputStream(".\\playlists\\"+listasDisponibles.get(cambio)+".xml");
+            XMLDecoder decoder2 = new XMLDecoder(xmlAso);
+            Playlist test2 = (Playlist) decoder2.readObject();
+            xmlAso.close();
+            test2.showPlaylist();
+
+            FileOutputStream papaJones2 = new FileOutputStream(".\\playlistActual\\playlistActual.xml", false);
+            XMLEncoder encoderPAPA2 = new XMLEncoder(papaJones2);
+            encoderPAPA2.writeObject(test2);
+            encoderPAPA2.close();
+            papaJones2.close();
+
+            testing = test2;
+
+            soniditos = new Media(testing.current.getCancion());
+            reproductorHD = new MediaPlayer(soniditos);
+            songLabel.setText(testing.current.getNameS());
+            artistLabel.setText(testing.current.getArtista());
+            albumLabel.setText(testing.current.getAlbum());
+            playlistLabel.setText(testing.getTag());
+            reproductorHD.play();
+            System.out.println("entré al if");
+            System.out.println(testing.getTag());
+            System.out.println(cambio);
+
+        }
+        else {
+            System.out.println(cambio);
+            cambio++;
+            FileInputStream xmlAso = new FileInputStream(".\\playlists\\"+listasDisponibles.get(cambio)+".xml");
+            XMLDecoder decoder5 = new XMLDecoder(xmlAso);
+            Playlist test5 = (Playlist) decoder5.readObject();
+            xmlAso.close();
+            System.out.println("Else ------------");
+            test5.showPlaylist();
+            System.out.println("Else ------------");
+
+            FileOutputStream papaJones5 = new FileOutputStream(".\\playlistActual\\playlistActual.xml", false);
+            XMLEncoder encoderPAPA5 = new XMLEncoder(papaJones5);
+            encoderPAPA5.writeObject(test5);
+            encoderPAPA5.close();
+            papaJones5.close();
+
+            testing = test5;
+
+            soniditos = new Media(testing.current.getCancion());
+            reproductorHD = new MediaPlayer(soniditos);
+            songLabel.setText(testing.current.getNameS());
+            artistLabel.setText(testing.current.getArtista());
+            albumLabel.setText(testing.current.getAlbum());
+            playlistLabel.setText(testing.getTag());
+            reproductorHD.play();
+            System.out.println("entré al else");
+            System.out.println(testing.getTag());
+            System.out.println(cambio);
+        }
 
     }
 }

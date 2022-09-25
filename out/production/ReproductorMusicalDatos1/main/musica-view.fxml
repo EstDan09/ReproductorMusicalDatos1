@@ -50,7 +50,7 @@
                   <Image url="@../playlists.png" />
                </image>
             </ImageView>
-            <Button fx:id="playlistsButton" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Cambiar Playlist" textFill="WHITE">
+            <Button fx:id="playlistsButton" mnemonicParsing="false" onAction="#cambiarPlaylist" style="-fx-background-color: transparent;" text="Cambiar Playlist" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Black" size="18.0" />
                </font>
@@ -130,7 +130,7 @@
                            </children></AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="181.0" prefWidth="736.0" style="-fx-background-color: #bec8b8#bec8b8;">
                            <children>
-                              <Label fx:id="playlistLabel" layoutX="33.0" layoutY="26.0" style="-fx-font-style: #fff;" text="Playlist" textFill="#f2f0f0">
+                              <Label fx:id="playlistLabel" layoutX="33.0" layoutY="26.0" style="-fx-font-style: #fff;" text="Playlist" textFill="#f2f0f0" >
                                  <font>
                                     <Font name="Segoe UI Black" size="18.0" />
                                  </font>
