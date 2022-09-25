@@ -49,10 +49,12 @@ public class MusicaView implements Initializable {
     @FXML
     private Label songLabel;
     @FXML
-
     private Label artistLabel;
     @FXML
     private Label albumLabel;
+    @FXML
+    private Label playlistLabel;
+
 
     private File directorio;
     private File[] archivos;
@@ -135,12 +137,19 @@ public class MusicaView implements Initializable {
     public void playSong(){
         reproductorHD.play();
         songLabel.setText(testing.current.getNameS());
+        artistLabel.setText(testing.current.getArtista());
+        albumLabel.setText(testing.current.getAlbum());
+        playlistLabel.setText(testing.getTag());
+
     }
     /**
      * Método pauseSong para pausar la canción
      */
     public void pauseSong(){
         reproductorHD.pause();
+        songLabel.setText(testing.current.getNameS());
+        artistLabel.setText(testing.current.getArtista());
+        albumLabel.setText(testing.current.getAlbum());
     }
     /**
      * Método resetSong para reiniciar la canción
@@ -158,6 +167,9 @@ public class MusicaView implements Initializable {
         soniditos = new Media(testing.current.getCancion());
         reproductorHD = new MediaPlayer(soniditos);
         reproductorHD.play();
+        songLabel.setText(testing.current.getNameS());
+        artistLabel.setText(testing.current.getArtista());
+        albumLabel.setText(testing.current.getAlbum());
     }
     /**
      * Método nextSong para ir a la canción siguiente
@@ -168,6 +180,9 @@ public class MusicaView implements Initializable {
         soniditos = new Media(testing.current.getCancion());
         reproductorHD = new MediaPlayer(soniditos);
         reproductorHD.play();
+        songLabel.setText(testing.current.getNameS());
+        artistLabel.setText(testing.current.getArtista());
+        albumLabel.setText(testing.current.getAlbum());
     }
     /**
      * Método para crear playlist
@@ -175,4 +190,6 @@ public class MusicaView implements Initializable {
     public void createPlaylist(){
 
     }
+
+    public void cambiar
 }
