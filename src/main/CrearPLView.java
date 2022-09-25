@@ -1,9 +1,13 @@
 package main;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import javafx.scene.input.MouseEvent;
@@ -21,7 +25,7 @@ public class CrearPLView {
     private TextField playlistName;
 
     FileChooser seleccionador = new FileChooser();
-    Playlist musiquita = new Playlist("temp");
+    Playlist musiquita = new Playlist("temp", "tempU");
     @FXML
     public void cargarArchivo(MouseEvent event) throws IOException {
         archivo = seleccionador.showOpenDialog(new Stage()); // escogencia del archivo
@@ -29,7 +33,14 @@ public class CrearPLView {
         XMLDecoder decoder2 = new XMLDecoder(xmlAso); // decodificador para leer el XML //
         Node nodeAso = (Node)decoder2.readObject(); // crea nodo con la información almacenada de la metadata //
         xmlAso.close();
+
+        FileInputStream cargaUsuarioActual = new FileInputStream(".\\users\\usuarioActual.xml");
+        XMLDecoder decoder = new XMLDecoder(cargaUsuarioActual);
+        Users usActual = (Users)decoder.readObject();
+        cargaUsuarioActual.close();
+
         musiquita.setTag(playlistName.getText());
+        musiquita.setOwner(usActual.email);
         musiquita.appendItem(archivo.toURI().toString(), nodeAso.getNameS(), nodeAso.getArtista(), nodeAso.album, nodeAso.getLyrics(), nodeAso.getYear());
     }
 
@@ -50,11 +61,21 @@ public class CrearPLView {
         System.out.println("---------------------");
         musiquita.showPlaylist();
 
-        FileOutputStream papaJones2 = new FileOutputStream(".\\playlists\\playlistActual.xml", false);
+        FileOutputStream papaJones2 = new FileOutputStream(".\\playlistActual\\playlistActual.xml", false);
         XMLEncoder encoderPAPA2 = new XMLEncoder(papaJones2);
         encoderPAPA2.writeObject(musiquita);
         encoderPAPA2.close();
         papaJones2.close();
+
+        FXMLLoader musicaFxml = new FXMLLoader(getClass().getResource("musica-view.fxml"));
+        Parent musicaParent = musicaFxml.load();
+        Stage musicaStage = new Stage();
+        musicaStage.setTitle("FE MusicPlayer");
+        musicaStage.setScene(new Scene(musicaParent));
+        musicaStage.initModality(Modality.NONE);
+        Stage mainStage = (Stage) playlistName.getScene().getWindow();
+        mainStage.close();
+        musicaStage.show();
 
 
 

@@ -46,19 +46,25 @@ public class MusicaView implements Initializable {
     private Button searchButton1;
     @FXML
     private Label tebiLabel;
+    @FXML
+    private Label songLabel;
+    @FXML
+
+    private Label artistLabel;
+    @FXML
+    private Label albumLabel;
 
     private File directorio;
-    private File fabiana;
     private File[] archivos;
-    private File[] neverita;
-    private ArrayList<File> rolas;
+    private ArrayList<File> listaPL;
     private int numRola;
     private boolean running;
     private Media soniditos;
     private MediaPlayer reproductorHD;
-    public FileChooser seleccionador = new FileChooser();
-    public File archivo;
-    public Playlist testing = new Playlist("Num1");
+    private FileChooser seleccionador = new FileChooser();
+    private File archivo;
+    private List<String> listasDisponibles = new ArrayList<>();
+    private Playlist testing = new Playlist("Num1", "run");
 
     /**
      * Clase cargarArchivo para que el usuario pueda cargar archivos para sus playlist
@@ -80,27 +86,33 @@ public class MusicaView implements Initializable {
 
             tebiLabel.setText(usActual.getNameComplete());
 
-            rolas = new ArrayList<File>();
-            directorio = new File("songs");
-            fabiana = new File("metadata");
+            listaPL = new ArrayList<File>();
+            directorio = new File("playlists");
             archivos = directorio.listFiles();
-            neverita = fabiana.listFiles();
-            if(archivos != null){
-                for(File file : archivos){
-                    FileInputStream xmlAso = new FileInputStream(".\\metadata\\"+file.getName()+".xml");
-                    XMLDecoder decoder2 = new XMLDecoder(xmlAso);
-                    Node nodeAso = (Node)decoder2.readObject();
-                    xmlAso.close();
-
-                    testing.appendItem(file.toURI().toString(), nodeAso.getNameS(), nodeAso.getArtista(), nodeAso.getAlbum(),
-                            nodeAso.getLyrics(), nodeAso.getYear());
+            if (archivos != null){
+                for (File file : archivos){
+                    FileInputStream buscarPL = new FileInputStream(".\\playlists\\"+file.getName());
+                    XMLDecoder decoder1 = new XMLDecoder(buscarPL);
+                    Playlist tempPL = (Playlist) decoder1.readObject();
+                    cargaUsuarioActual.close();
+                    if (Objects.equals(usActual.getEmail(), tempPL.getOwner())){
+                        listasDisponibles.add(tempPL.getTag());
+                    }
                 }
-                testing.showPlaylist();
-                System.out.println(testing.getSize());
-
             }
-            soniditos = new Media(testing.current.getCancion());
-            reproductorHD = new MediaPlayer(soniditos);
+
+            System.out.println(listasDisponibles);
+
+            FileInputStream xmlAso = new FileInputStream(".\\playlistActual\\playlistActual.xml");
+            XMLDecoder decoder2 = new XMLDecoder(xmlAso);
+            testing = (Playlist) decoder2.readObject();
+            xmlAso.close();
+
+            if(Objects.equals(usActual.getEmail(), testing.getOwner())){
+                soniditos = new Media(testing.current.getCancion());
+                reproductorHD = new MediaPlayer(soniditos);
+            }
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -122,6 +134,7 @@ public class MusicaView implements Initializable {
      */
     public void playSong(){
         reproductorHD.play();
+        songLabel.setText(testing.current.getNameS());
     }
     /**
      * Método pauseSong para pausar la canción

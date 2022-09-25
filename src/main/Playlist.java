@@ -9,6 +9,7 @@ import java.util.ArrayList;
  */
 public class Playlist implements Serializable {
     public String tag;
+    public String owner;
     public Node head;
     public Node tail;
     public Node current;
@@ -20,8 +21,9 @@ public class Playlist implements Serializable {
     public Playlist(){
 
     }
-    public Playlist(String tag) {
+    public Playlist(String tag, String owner) {
         this.tag = tag;
+        this.owner = owner;
         this.head = null;
         this.tail = null;
         this.current = null;
@@ -36,6 +38,14 @@ public class Playlist implements Serializable {
 
     public void setTag(String tag) {
         this.tag = tag;
+    }
+
+    public String getOwner() {
+        return owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
     }
 
     public Node getHead() {

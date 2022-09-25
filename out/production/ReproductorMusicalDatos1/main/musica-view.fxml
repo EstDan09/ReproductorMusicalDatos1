@@ -112,7 +112,7 @@
                                  </font>
                               </Button>
                               <ProgressBar fx:id="progBar" layoutX="238.0" layoutY="179.0" prefHeight="20.0" prefWidth="287.0" progress="0.0" />
-                              <Label fx:id="songLabel" layoutX="359.0" layoutY="35.0" style="-fx-font-style: #fff;" text="Song" textFill="#f2f0f0">
+                              <Label fx:id="songLabel" layoutX="28.0" layoutY="35.0" style="-fx-font-style: #fff;" text="Song" textFill="#f2f0f0">
                                  <font>
                                     <Font name="Segoe UI Black" size="18.0" />
                                  </font>
