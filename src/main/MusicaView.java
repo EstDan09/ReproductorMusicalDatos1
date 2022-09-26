@@ -1,5 +1,9 @@
 package main;
 
+import com.fazecast.jSerialComm.*;
+
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 
@@ -9,8 +13,11 @@ import java.beans.XMLEncoder;
 import java.io.*;
 import javax.xml.stream.*;
 
+
+
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 
@@ -66,6 +73,8 @@ public class MusicaView implements Initializable {
     private Label eestadooLabel;
     @FXML
     private TextField editName, editArtist, editAlbum, editYear;
+    @FXML
+    private Slider slideVol;
 
 
 
@@ -136,6 +145,13 @@ public class MusicaView implements Initializable {
             else {
                 eestadooLabel.setText("No favorita :(");
             }
+
+            slideVol.valueProperty().addListener(new ChangeListener<Number>() {
+                @Override
+                public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
+                    reproductorHD.setVolume(slideVol.getValue() * 0.01);
+                }
+            });
 
         } catch (IOException e) {
             throw new RuntimeException(e);

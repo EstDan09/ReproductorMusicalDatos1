@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="18.0.1.1" class="java.beans.XMLDecoder">
+ <object class="main.Node" id="Node0">
+  <void class="main.Node" method="getField">
+   <string>nameS</string>
+   <void method="set">
+    <object idref="Node0"/>
+    <string>Hear Me</string>
+   </void>
+  </void>
+  <void class="main.Node" method="getField">
+   <string>artista</string>
+   <void method="set">
+    <object idref="Node0"/>
+    <string>Imagine Dragons</string>
+   </void>
+  </void>
+  <void class="main.Node" method="getField">
+   <string>album</string>
+   <void method="set">
+    <object idref="Node0"/>
+    <string>Night Visions</string>
+   </void>
+  </void>
+  <void class="main.Node" method="getField">
+   <string>lyrics</string>
+   <void method="set">
+    <object idref="Node0"/>
+    <string>sd</string>
+   </void>
+  </void>
+  <void class="main.Node" method="getField">
+   <string>year</string>
+   <void method="set">
+    <object idref="Node0"/>
+    <string>2012</string>
+   </void>
+  </void>
+  <void class="main.Node" method="getField">
+   <string>fave</string>
+   <void method="set">
+    <object idref="Node0"/>
+    <boolean>false</boolean>
+   </void>
+  </void>
+ </object>
+</java>

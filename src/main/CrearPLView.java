@@ -41,7 +41,7 @@ public class CrearPLView {
 
         musiquita.setTag(playlistName.getText());
         musiquita.setOwner(usActual.email);
-        musiquita.appendItem(archivo.toURI().toString(), nodeAso.getNameS(), nodeAso.getArtista(), nodeAso.album, nodeAso.getLyrics(), nodeAso.getYear());
+        musiquita.appendItem(archivo.toURI().toString(), nodeAso.getNameS(), nodeAso.getArtista(), nodeAso.getAlbum(), nodeAso.getLyrics(), nodeAso.getYear());
     }
 
 

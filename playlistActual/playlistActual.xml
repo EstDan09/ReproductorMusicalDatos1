@@ -5,7 +5,7 @@
    <string>tag</string>
    <void method="set">
     <object idref="Playlist0"/>
-    <string>otra vez</string>
+    <string>Hola</string>
    </void>
   </void>
   <void class="main.Playlist" method="getField">
@@ -43,341 +43,21 @@
          <string>cancion</string>
          <void method="set">
           <object idref="Node1"/>
-          <string>file:/C:/Users/eseca/IdeaProjects/ReproductorMusicalDatos1/songs/02%20Imagine%20Dragons%20-%20Tiptoe.mp3</string>
+          <string>file:/C:/Users/eseca/IdeaProjects/ReproductorMusicalDatos1/songs/04%20Imagine%20Dragons%20-%20Demons.mp3</string>
          </void>
         </void>
         <void class="main.Node" method="getField">
          <string>nameS</string>
          <void method="set">
           <object idref="Node1"/>
-          <string>Tiptoe</string>
+          <string>Demons</string>
          </void>
         </void>
         <void class="main.Node" method="getField">
          <string>next</string>
          <void method="set">
           <object idref="Node1"/>
-          <object class="main.Node" id="Node2">
-           <void class="main.Node" method="getField">
-            <string>cancion</string>
-            <void method="set">
-             <object idref="Node2"/>
-             <string>file:/C:/Users/eseca/IdeaProjects/ReproductorMusicalDatos1/songs/03%20Imagine%20Dragons%20-%20It&apos;s%20Time.mp3</string>
-            </void>
-           </void>
-           <void class="main.Node" method="getField">
-            <string>nameS</string>
-            <void method="set">
-             <object idref="Node2"/>
-             <string>es hora</string>
-            </void>
-           </void>
-           <void class="main.Node" method="getField">
-            <string>next</string>
-            <void method="set">
-             <object idref="Node2"/>
-             <object class="main.Node" id="Node3">
-              <void class="main.Node" method="getField">
-               <string>cancion</string>
-               <void method="set">
-                <object idref="Node3"/>
-                <string>file:/C:/Users/eseca/IdeaProjects/ReproductorMusicalDatos1/songs/04%20Imagine%20Dragons%20-%20Demons.mp3</string>
-               </void>
-              </void>
-              <void class="main.Node" method="getField">
-               <string>nameS</string>
-               <void method="set">
-                <object idref="Node3"/>
-                <string>Demons</string>
-               </void>
-              </void>
-              <void class="main.Node" method="getField">
-               <string>next</string>
-               <void method="set">
-                <object idref="Node3"/>
-                <object class="main.Node" id="Node4">
-                 <void class="main.Node" method="getField">
-                  <string>cancion</string>
-                  <void method="set">
-                   <object idref="Node4"/>
-                   <string>file:/C:/Users/eseca/IdeaProjects/ReproductorMusicalDatos1/songs/05%20Imagine%20Dragons%20-%20On%20Top%20of%20the%20World.mp3</string>
-                  </void>
-                 </void>
-                 <void class="main.Node" method="getField">
-                  <string>nameS</string>
-                  <void method="set">
-                   <object idref="Node4"/>
-                   <string>On Top of the World</string>
-                  </void>
-                 </void>
-                 <void class="main.Node" method="getField">
-                  <string>next</string>
-                  <void method="set">
-                   <object idref="Node4"/>
-                   <object class="main.Node" id="Node5">
-                    <void class="main.Node" method="getField">
-                     <string>cancion</string>
-                     <void method="set">
-                      <object idref="Node5"/>
-                      <string>file:/C:/Users/eseca/IdeaProjects/ReproductorMusicalDatos1/songs/06%20Imagine%20Dragons%20-%20Amsterdam.mp3</string>
-                     </void>
-                    </void>
-                    <void class="main.Node" method="getField">
-                     <string>nameS</string>
-                     <void method="set">
-                      <object idref="Node5"/>
-                      <string>Radioactive</string>
-                     </void>
-                    </void>
-                    <void class="main.Node" method="getField">
-                     <string>next</string>
-                     <void method="set">
-                      <object idref="Node5"/>
-                      <object class="main.Node" id="Node6">
-                       <void class="main.Node" method="getField">
-                        <string>cancion</string>
-                        <void method="set">
-                         <object idref="Node6"/>
-                         <string>file:/C:/Users/eseca/IdeaProjects/ReproductorMusicalDatos1/songs/07%20Imagine%20Dragons%20-%20Hear%20Me.mp3</string>
-                        </void>
-                       </void>
-                       <void class="main.Node" method="getField">
-                        <string>nameS</string>
-                        <void method="set">
-                         <object idref="Node6"/>
-                         <string>Radioactive</string>
-                        </void>
-                       </void>
-                       <void class="main.Node" method="getField">
-                        <string>next</string>
-                        <void method="set">
-                         <object idref="Node6"/>
-                         <object idref="Node0"/>
-                        </void>
-                       </void>
-                       <void class="main.Node" method="getField">
-                        <string>prev</string>
-                        <void method="set">
-                         <object idref="Node6"/>
-                         <object idref="Node5"/>
-                        </void>
-                       </void>
-                       <void class="main.Node" method="getField">
-                        <string>artista</string>
-                        <void method="set">
-                         <object idref="Node6"/>
-                         <string>Imagine Dragons</string>
-                        </void>
-                       </void>
-                       <void class="main.Node" method="getField">
-                        <string>album</string>
-                        <void method="set">
-                         <object idref="Node6"/>
-                         <string>Night Visions</string>
-                        </void>
-                       </void>
-                       <void class="main.Node" method="getField">
-                        <string>lyrics</string>
-                        <void method="set">
-                         <object idref="Node6"/>
-                         <string>sd</string>
-                        </void>
-                       </void>
-                       <void class="main.Node" method="getField">
-                        <string>year</string>
-                        <void method="set">
-                         <object idref="Node6"/>
-                         <string>2012</string>
-                        </void>
-                       </void>
-                       <void class="main.Node" method="getField">
-                        <string>fave</string>
-                        <void method="set">
-                         <object idref="Node6"/>
-                         <boolean>false</boolean>
-                        </void>
-                       </void>
-                      </object>
-                     </void>
-                    </void>
-                    <void class="main.Node" method="getField">
-                     <string>prev</string>
-                     <void method="set">
-                      <object idref="Node5"/>
-                      <object idref="Node4"/>
-                     </void>
-                    </void>
-                    <void class="main.Node" method="getField">
-                     <string>artista</string>
-                     <void method="set">
-                      <object idref="Node5"/>
-                      <string>Imagine Dragons</string>
-                     </void>
-                    </void>
-                    <void class="main.Node" method="getField">
-                     <string>album</string>
-                     <void method="set">
-                      <object idref="Node5"/>
-                      <string>Night Visions</string>
-                     </void>
-                    </void>
-                    <void class="main.Node" method="getField">
-                     <string>lyrics</string>
-                     <void method="set">
-                      <object idref="Node5"/>
-                      <string>sd</string>
-                     </void>
-                    </void>
-                    <void class="main.Node" method="getField">
-                     <string>year</string>
-                     <void method="set">
-                      <object idref="Node5"/>
-                      <string>2012</string>
-                     </void>
-                    </void>
-                    <void class="main.Node" method="getField">
-                     <string>fave</string>
-                     <void method="set">
-                      <object idref="Node5"/>
-                      <boolean>false</boolean>
-                     </void>
-                    </void>
-                   </object>
-                  </void>
-                 </void>
-                 <void class="main.Node" method="getField">
-                  <string>prev</string>
-                  <void method="set">
-                   <object idref="Node4"/>
-                   <object idref="Node3"/>
-                  </void>
-                 </void>
-                 <void class="main.Node" method="getField">
-                  <string>artista</string>
-                  <void method="set">
-                   <object idref="Node4"/>
-                   <string>Imagine Dragons</string>
-                  </void>
-                 </void>
-                 <void class="main.Node" method="getField">
-                  <string>album</string>
-                  <void method="set">
-                   <object idref="Node4"/>
-                   <string>Night Visions</string>
-                  </void>
-                 </void>
-                 <void class="main.Node" method="getField">
-                  <string>lyrics</string>
-                  <void method="set">
-                   <object idref="Node4"/>
-                   <string>sd</string>
-                  </void>
-                 </void>
-                 <void class="main.Node" method="getField">
-                  <string>year</string>
-                  <void method="set">
-                   <object idref="Node4"/>
-                   <string>2012</string>
-                  </void>
-                 </void>
-                 <void class="main.Node" method="getField">
-                  <string>fave</string>
-                  <void method="set">
-                   <object idref="Node4"/>
-                   <boolean>false</boolean>
-                  </void>
-                 </void>
-                </object>
-               </void>
-              </void>
-              <void class="main.Node" method="getField">
-               <string>prev</string>
-               <void method="set">
-                <object idref="Node3"/>
-                <object idref="Node2"/>
-               </void>
-              </void>
-              <void class="main.Node" method="getField">
-               <string>artista</string>
-               <void method="set">
-                <object idref="Node3"/>
-                <string>Imagine Dragons</string>
-               </void>
-              </void>
-              <void class="main.Node" method="getField">
-               <string>album</string>
-               <void method="set">
-                <object idref="Node3"/>
-                <string>Night Visions</string>
-               </void>
-              </void>
-              <void class="main.Node" method="getField">
-               <string>lyrics</string>
-               <void method="set">
-                <object idref="Node3"/>
-                <string>sd</string>
-               </void>
-              </void>
-              <void class="main.Node" method="getField">
-               <string>year</string>
-               <void method="set">
-                <object idref="Node3"/>
-                <string>2012</string>
-               </void>
-              </void>
-              <void class="main.Node" method="getField">
-               <string>fave</string>
-               <void method="set">
-                <object idref="Node3"/>
-                <boolean>false</boolean>
-               </void>
-              </void>
-             </object>
-            </void>
-           </void>
-           <void class="main.Node" method="getField">
-            <string>prev</string>
-            <void method="set">
-             <object idref="Node2"/>
-             <object idref="Node1"/>
-            </void>
-           </void>
-           <void class="main.Node" method="getField">
-            <string>artista</string>
-            <void method="set">
-             <object idref="Node2"/>
-             <string>imagine dragons</string>
-            </void>
-           </void>
-           <void class="main.Node" method="getField">
-            <string>album</string>
-            <void method="set">
-             <object idref="Node2"/>
-             <string>night visions</string>
-            </void>
-           </void>
-           <void class="main.Node" method="getField">
-            <string>lyrics</string>
-            <void method="set">
-             <object idref="Node2"/>
-             <string>sd</string>
-            </void>
-           </void>
-           <void class="main.Node" method="getField">
-            <string>year</string>
-            <void method="set">
-             <object idref="Node2"/>
-             <string>2000</string>
-            </void>
-           </void>
-           <void class="main.Node" method="getField">
-            <string>fave</string>
-            <void method="set">
-             <object idref="Node2"/>
-             <boolean>true</boolean>
-            </void>
-           </void>
-          </object>
+          <object idref="Node0"/>
          </void>
         </void>
         <void class="main.Node" method="getField">
@@ -429,7 +109,7 @@
       <string>prev</string>
       <void method="set">
        <object idref="Node0"/>
-       <object idref="Node6"/>
+       <object idref="Node1"/>
       </void>
      </void>
      <void class="main.Node" method="getField">
@@ -464,7 +144,7 @@
       <string>fave</string>
       <void method="set">
        <object idref="Node0"/>
-       <boolean>false</boolean>
+       <boolean>true</boolean>
       </void>
      </void>
     </object>
@@ -474,21 +154,21 @@
    <string>tail</string>
    <void method="set">
     <object idref="Playlist0"/>
-    <object idref="Node6"/>
+    <object idref="Node1"/>
    </void>
   </void>
   <void class="main.Playlist" method="getField">
    <string>current</string>
    <void method="set">
     <object idref="Playlist0"/>
-    <object idref="Node2"/>
+    <object idref="Node0"/>
    </void>
   </void>
   <void class="main.Playlist" method="getField">
    <string>size</string>
    <void method="set">
     <object idref="Playlist0"/>
-    <int>7</int>
+    <int>2</int>
    </void>
   </void>
  </object>
