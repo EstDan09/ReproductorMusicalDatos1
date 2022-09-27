@@ -62,6 +62,8 @@ public class MusicaView implements Initializable {
     @FXML
     private Button editButton;
     @FXML
+    private Button bebesongButton;
+    @FXML
     private Label tebiLabel;
     @FXML
     private Label songLabel;
@@ -109,6 +111,7 @@ public class MusicaView implements Initializable {
     @Override
     public void initialize (URL url, ResourceBundle resourceBundle) {
         try {
+            wap();
             FileInputStream cargaUsuarioActual = new FileInputStream(".\\users\\usuarioActual.xml");
             XMLDecoder decoder = new XMLDecoder(cargaUsuarioActual);
             Users usActual = (Users)decoder.readObject();
@@ -190,9 +193,9 @@ public class MusicaView implements Initializable {
             eestadooLabel.setText("No favorita :(");
         }
 
-        if (continuidad != false){
-            reproductorHD.setOnEndOfMedia(nextSong());
-        }
+        //if (continuidad != false){
+           // reproductorHD.setOnEndOfMedia(nextSong());
+        //}
 
     }
     /**
@@ -381,9 +384,41 @@ public class MusicaView implements Initializable {
         encoderPAPAA.close();
         papaJonesA.close();
     }
-
-    public void conectar(){
-        SerialPort puerto = new SerialPort("pe");
+    public void wap(){
+        SerialPort puerto = new SerialPort("COM6");
+        try {
+            puerto.openPort();
+            puerto.setParams(SerialPort.BAUDRATE_9600, SerialPort.DATABITS_8, SerialPort.STOPBITS_1, SerialPort.PARITY_NONE);
+            puerto.addEventListener((SerialPortEvent event) -> {
+                if (event.isRXCHAR()){
+                    try {
+                        String x = puerto.readString();
+                        if (x.equals("p")){
+                            playSong();
+                        }
+                        if (x.equals("i")){
+                            pauseSong();
+                        }
+                        if (x.equals("n")){
+                            nextSong();
+                        }
+                        if (x.equals("g")){
+                            prevSong();
+                        }
+                        if (x.equals("a")){
+                            likear();
+                        }
+                    }
+                    catch (SerialPortException e){
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            });
+        }
+        catch (SerialPortException e){
+            e.printStackTrace();
+        }
     }
-
 }
