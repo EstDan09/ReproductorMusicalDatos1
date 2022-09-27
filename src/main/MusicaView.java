@@ -1,6 +1,6 @@
 package main;
 
-import com.fazecast.jSerialComm.*;
+
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -11,8 +11,6 @@ import java.awt.event.MouseEvent;
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
 import java.io.*;
-import javax.xml.stream.*;
-
 
 
 import javafx.scene.Parent;
@@ -20,6 +18,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
+
+import jssc.*;
+import org.w3c.dom.*;
+import org.xml.sax.SAXException;
 
 import java.net.URL;
 import java.util.*;
@@ -91,6 +93,8 @@ public class MusicaView implements Initializable {
     private List<String> listasDisponibles = new ArrayList<>();
     private Playlist testing = new Playlist("Num1", "run");
     private int cambio = 0;
+    private boolean continuidad = false;
+
 
     /**
      * Clase cargarArchivo para que el usuario pueda cargar archivos para sus playlist
@@ -184,6 +188,10 @@ public class MusicaView implements Initializable {
         }
         else {
             eestadooLabel.setText("No favorita :(");
+        }
+
+        if (continuidad != false){
+            reproductorHD.setOnEndOfMedia(nextSong());
         }
 
     }
@@ -372,6 +380,10 @@ public class MusicaView implements Initializable {
         encoderPAPAA.writeObject(testing);
         encoderPAPAA.close();
         papaJonesA.close();
+    }
+
+    public void conectar(){
+        SerialPort puerto = new SerialPort("pe");
     }
 
 }
