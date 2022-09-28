@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Deleite">
+   <children>
+      <AnchorPane layoutX="83.0" layoutY="69.0" prefHeight="253.0" prefWidth="434.0" style="-fx-background-color: #fcd38a;">
+         <children>
+            <Label layoutX="26.0" layoutY="45.0" text="Introduce el nombre de la canción que quieres eliminar">
+               <font>
+                  <Font name="Segoe UI Black" size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="eliminateButton" layoutX="190.0" layoutY="162.0" mnemonicParsing="false" onAction="#borrarArroz" style="-fx-background-color: WHITE;" text="Eliminar">
+               <font>
+                  <Font name="Segoe UI Black" size="11.0" />
+               </font>
+            </Button>
+            <TextField fx:id="txtCancion" alignment="CENTER" layoutX="141.0" layoutY="102.0" promptText="nombre de la canción">
+               <font>
+                  <Font name="Segoe UI Black" size="12.0" />
+               </font>
+            </TextField>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
