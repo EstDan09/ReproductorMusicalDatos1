@@ -424,6 +424,7 @@ public class MusicaView implements Initializable {
                         if (x.equals("a")){
                             likear();
                         }
+
                     }
                     catch (SerialPortException e){
                         e.printStackTrace();

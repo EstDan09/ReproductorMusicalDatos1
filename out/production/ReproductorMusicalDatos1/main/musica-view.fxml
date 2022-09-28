@@ -83,32 +83,32 @@
                     <items>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #422e4f#422e4f;">
                            <children>
-                              <Button fx:id="playButton" layoutX="310.0" layoutY="226.0" mnemonicParsing="false" onAction="#playSong" style="-fx-background-color: transparente;" text="Play" textFill="WHITE">
+                              <Button fx:id="playButton" layoutX="279.0" layoutY="226.0" mnemonicParsing="false" onAction="#playSong" style="-fx-background-color: transparente;" text="Play" textFill="WHITE">
                                  <font>
                                     <Font name="Segoe UI Black" size="13.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="pauseButton" layoutX="363.0" layoutY="226.0" mnemonicParsing="false" onAction="#pauseSong" style="-fx-background-color: transparente;" text="Pause" textFill="WHITE">
+                              <Button fx:id="pauseButton" layoutX="340.0" layoutY="226.0" mnemonicParsing="false" onAction="#pauseSong" style="-fx-background-color: transparente;" text="Pause" textFill="WHITE">
                                  <font>
                                     <Font name="Segoe UI Black" size="13.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="backButton" layoutX="248.0" layoutY="226.0" mnemonicParsing="false" onAction="#prevSong" style="-fx-background-color: transparente;" text="Back" textFill="WHITE">
+                              <Button fx:id="backButton" layoutX="211.0" layoutY="226.0" mnemonicParsing="false" onAction="#prevSong" style="-fx-background-color: transparente;" text="Back" textFill="WHITE">
                                  <font>
                                     <Font name="Segoe UI Black" size="13.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="nextButton" layoutX="432.0" layoutY="226.0" mnemonicParsing="false" onAction="#nextSong" style="-fx-background-color: transparente;" text="Next" textFill="WHITE">
+                              <Button fx:id="nextButton" layoutX="410.0" layoutY="226.0" mnemonicParsing="false" onAction="#nextSong" style="-fx-background-color: transparente;" text="Next" textFill="WHITE">
                                  <font>
                                     <Font name="Segoe UI Black" size="13.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="likeButton" layoutX="168.0" layoutY="227.0" mnemonicParsing="false" onAction="#likear" style="-fx-background-color: transparent;" text="Like" textFill="WHITE">
+                              <Button fx:id="likeButton" layoutX="159.0" layoutY="227.0" mnemonicParsing="false" onAction="#likear" style="-fx-background-color: transparent;" text="Like" textFill="WHITE">
                                  <font>
                                     <Font name="Segoe UI Black" size="13.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="shuffleButton" layoutX="504.0" layoutY="226.0" mnemonicParsing="false" onAction="#resetSong" style="-fx-background-color: transparent;" text="Shuffle" textFill="WHITE">
+                              <Button fx:id="shuffleButton" layoutX="473.0" layoutY="226.0" mnemonicParsing="false" onAction="#resetSong" style="-fx-background-color: transparent;" text="Reset" textFill="WHITE">
                                  <font>
                                     <Font name="Segoe UI Black" size="13.0" />
                                  </font>
@@ -139,6 +139,11 @@
                                     <Font name="Segoe UI Black" size="11.0" />
                                  </font></Label>
                               <Slider fx:id="slideVol" layoutX="312.0" layoutY="206.0" />
+                              <Button fx:id="rcButton" layoutX="543.0" layoutY="227.0" mnemonicParsing="false" style="-fx-background-color: transparente;" text="Reproducción continua" textFill="WHITE">
+                                 <font>
+                                    <Font name="Segoe UI Black" size="12.0" />
+                                 </font>
+                              </Button>
                            </children></AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="181.0" prefWidth="736.0" style="-fx-background-color: #bec8b8#bec8b8;">
                            <children>
@@ -180,6 +185,11 @@
                               <Button fx:id="editButton" contentDisplay="CENTER" layoutX="532.0" layoutY="232.0" mnemonicParsing="false" onAction="#editar" style="-fx-background-color: transparente;" text="Editar!" textFill="#595858">
                                  <font>
                                     <Font name="Segoe UI Black" size="11.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="editPButton" layoutX="39.0" layoutY="169.0" mnemonicParsing="false" onAction="#goToEditPlaylist" style="-fx-background-color: #7e9b89;" text="Editar playlist">
+                                 <font>
+                                    <Font name="Segoe UI Black" size="12.0" />
                                  </font>
                               </Button>
                            </children></AnchorPane>

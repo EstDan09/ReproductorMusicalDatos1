@@ -25,6 +25,7 @@ public class Deleite {
         xmlAso.close();
 
         test.delete(txtCancion.getText());
+        System.out.println(txtCancion.getText());
         test.showPlaylist();
 
 

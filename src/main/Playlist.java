@@ -108,12 +108,17 @@ public class Playlist implements Serializable {
      * Método para borrar el último elemento de la lista
      */
     public void delete(String nameS){
+        int c = 0;
         if (Objects.equals(head.getNameS(), nameS)){
             head = head.next;
             size -= 1;
         }
         tmp = head;
         while (tmp.next != null){
+            c++;
+            if(c > size){
+                break;
+            }
             if (Objects.equals(tmp.next.getNameS(), nameS)){
                 tmp.next = tmp.next.next;
                 size -= 1;
