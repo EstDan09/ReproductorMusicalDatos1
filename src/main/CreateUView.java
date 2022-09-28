@@ -91,7 +91,7 @@ public class CreateUView implements Initializable{
         FXMLLoader musicaFxml = new FXMLLoader(getClass().getResource("crearPLView.fxml"));
         Parent musicaParent = musicaFxml.load();
         Stage musicaStage = new Stage();
-        musicaStage.setTitle("FE MusicPlayer");
+        musicaStage.setTitle("ZEFS Music Player");
         musicaStage.setScene(new Scene(musicaParent));
         musicaStage.initModality(Modality.NONE);
         Stage mainStage = (Stage) logFromCrear.getScene().getWindow();

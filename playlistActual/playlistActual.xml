@@ -240,7 +240,7 @@
          <string>fave</string>
          <void method="set">
           <object idref="Node1"/>
-          <boolean>false</boolean>
+          <boolean>true</boolean>
          </void>
         </void>
         <void class="main.Node" method="getField">

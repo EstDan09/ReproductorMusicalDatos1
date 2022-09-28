@@ -104,7 +104,7 @@ public class MusicaView implements Initializable {
     private boolean continuidad = true;
 
     /**
-     * Método que carga la información del usuario para su pantalla de inicio
+     * Método que carga la información del usuario para su pantalla de inicio y otros parametros
      */
     @Override
     public void initialize (URL url, ResourceBundle resourceBundle) {
@@ -188,18 +188,23 @@ public class MusicaView implements Initializable {
         }
 
     }
+    /**
+     * Método para ir a la pantalla de creación de playlist
+     */
     public void goToCreatePL() throws IOException{
         FXMLLoader crearPLFxml = new FXMLLoader(getClass().getResource("crearPLView.fxml"));
         Parent crearPLParent = crearPLFxml.load();
         Stage crearPlStage = new Stage();
-        crearPlStage.setTitle("Create your Playlist");
+        crearPlStage.setTitle("Crea tu Playlist");
         crearPlStage.setScene(new Scene(crearPLParent));
         crearPlStage.initModality(Modality.NONE);
         Stage mainStage = (Stage) tebiLabel.getScene().getWindow();
         mainStage.close();
         crearPlStage.show();
     }
-
+    /**
+     * Método para ir a la pantalla de edición de playlist
+     */
     public void goToEditPlaylist() throws IOException{
         reproductorHD.stop();
         FXMLLoader crearPLFxml = new FXMLLoader(getClass().getResource("deleite.fxml"));
@@ -315,7 +320,9 @@ public class MusicaView implements Initializable {
         }
         return null;
     }
-
+    /**
+     * método para cambiar la playlist
+     */
     public void cambiarPlaylist() throws IOException {
         reproductorHD.stop();
 
@@ -374,7 +381,9 @@ public class MusicaView implements Initializable {
 
         }
     }
-
+    /**
+     * Método para agregar canción a favoritos
+     */
     public void likear() throws IOException {
         if (testing.current.getFave() == false){
             testing.current.setFave(true);
@@ -408,6 +417,9 @@ public class MusicaView implements Initializable {
         }
 
     }
+    /**
+     * Método para variar la reproducción continua
+     */
     public void switchCont(){
         if(continuidad != true){
             continuidad = true;
@@ -419,6 +431,9 @@ public class MusicaView implements Initializable {
             labRepro.setText("No");
         }
     }
+    /**
+     * método para editar metadata
+     */
     public void editar() throws IOException {
         testing.current.setNameS(editName.getText());
         testing.current.setArtista(editArtist.getText());
@@ -437,9 +452,15 @@ public class MusicaView implements Initializable {
         encoderPAPAA.close();
         papaJonesA.close();
     }
+    /**
+     * método para inicializar el arduino
+     */
     public void bebesong(){
         wap();
     }
+    /**
+     * método que se comunica con el arduinoo
+     */
     public void wap(){
         SerialPort puerto = new SerialPort("COM6");
         try {
@@ -456,6 +477,7 @@ public class MusicaView implements Initializable {
                             albumLabel.setText(testing.current.getAlbum());
                             playlistLabel.setText(testing.getTag());
                             lyricsLBL.setText(testing.current.getLyrics());
+                            System.out.println("C");
                         }
                         if (x.equals("d")){
                             pauseSong();
@@ -467,6 +489,11 @@ public class MusicaView implements Initializable {
                         }
                         if (x.equals("e")){
                             nextSong();
+                            songLabel.setText(testing.current.getNameS());
+                            artistLabel.setText(testing.current.getArtista());
+                            albumLabel.setText(testing.current.getAlbum());
+                            playlistLabel.setText(testing.getTag());
+                            lyricsLBL.setText(testing.current.getLyrics());
                         }
                         if (x.equals("b")){
                             prevSong();

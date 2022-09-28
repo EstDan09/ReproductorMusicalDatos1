@@ -16,6 +16,9 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+/**
+ * Clase que elimina canciones de una playlist
+ */
 public class Deleite {
     @FXML
     private TextField txtCancion;
@@ -23,6 +26,9 @@ public class Deleite {
     private Button eliminateButton;
 
     // función de borrar //
+    /**
+     * Método que borra la canción deseada
+     */
     public void borrarArroz() throws IOException {
         FileInputStream xmlAso = new FileInputStream(".\\playlistActual\\playlistActual.xml");
         XMLDecoder decoder2 = new XMLDecoder(xmlAso);
@@ -39,11 +45,14 @@ public class Deleite {
         encoderPAPA.close();
         papaJones.close();
     }
+    /**
+     * Método que regresa a la pantalla de música
+     */
     public void regresar() throws IOException {
         FXMLLoader createUFxml = new FXMLLoader(getClass().getResource("musica-view.fxml"));
         Parent createUParent = createUFxml.load();
         Stage createUStage = new Stage();
-        createUStage.setTitle("Crea Tu Cuenta");
+        createUStage.setTitle("ZEFS Music Playera");
         createUStage.setScene(new Scene(createUParent));
         createUStage.initModality(Modality.NONE); //se puede borrar
         Stage mainStage = (Stage) txtCancion.getScene().getWindow();
