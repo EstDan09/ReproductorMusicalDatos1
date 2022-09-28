@@ -3,6 +3,7 @@ package main;
 import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * Clase Lista Doblemente Enlazada Circular
@@ -12,6 +13,7 @@ public class Playlist implements Serializable {
     public String owner;
     public Node head;
     public Node tail;
+    public Node tmp;
     public Node current;
     public Integer size;
 
@@ -83,8 +85,8 @@ public class Playlist implements Serializable {
     /**
      * Método para añadir elementos a la lista
      */
-    public void appendItem(String cancion, String nameS, String artista, String album, String lyrics, String year) {
-        Node nuevaAdd = new Node(cancion, nameS, artista, album, lyrics, year);
+    public void appendItem(String cancion, String nameS, String artista, String album, String lyrics, String year, String realAlbum) {
+        Node nuevaAdd = new Node(cancion, nameS, artista, album, lyrics, year, realAlbum);
         if (head == null) {
             head = nuevaAdd;
             nuevaAdd.next = head;
@@ -105,7 +107,21 @@ public class Playlist implements Serializable {
     /**
      * Método para borrar el último elemento de la lista
      */
-    public void deleteLast(){
+    public void delete(String nameS){
+        if (Objects.equals(head.getNameS(), nameS)){
+            head = head.next;
+            size -= 1;
+        }
+        tmp = head;
+        while (tmp.next != null){
+            if (Objects.equals(tmp.next.getNameS(), nameS)){
+                tmp.next = tmp.next.next;
+                size -= 1;
+            }
+            else {
+                tmp = tmp.next;
+            }
+        }
     }
     /**
      * Método para mostrar los elementos de la lista
@@ -150,50 +166,3 @@ public class Playlist implements Serializable {
     }
 }
 
-
-
-/*
-
-    public boolean isEmpty() {
-        return this.head == null;
-    }
-
-    public int size() {
-        return this.size;
-    }
-
-    public void insertFirst(File rola) {
-        Song newSong = new Song(rola);
-        newSong.next = this.head;
-        newSong.previous = this.head;
-        this.head = newSong;
-        this.size++;
-    }
-
-    public Song deleteFirst() {
-        if (this.head != null) {
-            Song temp = this.head;
-            this.head = this.head.next;
-            this.size--;
-            return temp;
-        } else {
-            return null;
-        }
-    }
-    public void display() {
-        //Song current will point to head
-        Song current = head;
-        if(head == null) {
-            System.out.println("Lista vacía");
-            return;
-        }
-        System.out.println("Nodes of doubly linked list: ");
-        while(current != null) {
-            //Prints each node by incrementing the pointer.
-
-            System.out.print(current.rola + " ");
-            current = current.next;
-        }
-    }
-
-/*/

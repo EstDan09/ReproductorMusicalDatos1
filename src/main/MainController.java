@@ -43,6 +43,7 @@ public class MainController {
 
     @FXML
     private void goToCrear() throws IOException {
+
         FXMLLoader createUFxml = new FXMLLoader(getClass().getResource("createU-view.fxml"));
         Parent createUParent = createUFxml.load();
         Stage createUStage = new Stage();

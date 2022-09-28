@@ -5,35 +5,35 @@
    <string>nameS</string>
    <void method="set">
     <object idref="Node0"/>
-    <string>Selene</string>
+    <string>THE ONE</string>
    </void>
   </void>
   <void class="main.Node" method="getField">
    <string>artista</string>
    <void method="set">
     <object idref="Node0"/>
-    <string>Imagine Dragons</string>
+    <string>BABYMETAL</string>
    </void>
   </void>
   <void class="main.Node" method="getField">
    <string>album</string>
    <void method="set">
     <object idref="Node0"/>
-    <string>Night Visions</string>
+    <string>10 BABYMETAL YEARS</string>
    </void>
   </void>
   <void class="main.Node" method="getField">
    <string>lyrics</string>
    <void method="set">
     <object idref="Node0"/>
-    <string>sd</string>
+    <string>LETRA</string>
    </void>
   </void>
   <void class="main.Node" method="getField">
    <string>year</string>
    <void method="set">
     <object idref="Node0"/>
-    <string>2012</string>
+    <string>2021</string>
    </void>
   </void>
   <void class="main.Node" method="getField">

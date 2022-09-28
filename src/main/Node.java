@@ -17,6 +17,7 @@ public class Node implements Serializable {
     public String lyrics;
     public String year;
     public Boolean fave;
+    public String img;
 
     public Node(){
     }
@@ -24,7 +25,7 @@ public class Node implements Serializable {
     /**
      * Método constructor
      */
-    public  Node (String cancion, String nameS, String artista, String album, String lyrics, String year) {
+    public  Node (String cancion, String nameS, String artista, String album, String lyrics, String year, String realAlbum) {
         this.cancion = cancion;
         this.nameS  = nameS;
         this.next = null;
@@ -34,6 +35,7 @@ public class Node implements Serializable {
         this.lyrics = lyrics;
         this.year = year;
         this.fave = false;
+        this.img = realAlbum;
     }
     /**
      * Metodos setters and getter

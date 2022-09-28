@@ -20,8 +20,6 @@ import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 
 import jssc.*;
-import org.w3c.dom.*;
-import org.xml.sax.SAXException;
 
 import java.net.URL;
 import java.util.*;
@@ -79,6 +77,10 @@ public class MusicaView implements Initializable {
     private TextField editName, editArtist, editAlbum, editYear;
     @FXML
     private Slider slideVol;
+    @FXML
+    private Button editPButton;
+    @FXML
+    private Button rcButton;
 
 
 
@@ -95,7 +97,7 @@ public class MusicaView implements Initializable {
     private List<String> listasDisponibles = new ArrayList<>();
     private Playlist testing = new Playlist("Num1", "run");
     private int cambio = 0;
-    private boolean continuidad = false;
+    private boolean continuidad = true;
 
 
     /**
@@ -176,11 +178,25 @@ public class MusicaView implements Initializable {
         mainStage.close();
         crearPlStage.show();
     }
+
+    public void goToEditPlaylist() throws IOException{
+        reproductorHD.stop();
+        FXMLLoader crearPLFxml = new FXMLLoader(getClass().getResource("deleite.fxml"));
+        Parent crearPLParent = crearPLFxml.load();
+        Stage crearPlStage = new Stage();
+        crearPlStage.setTitle("Edita tu playlist");
+        crearPlStage.setScene(new Scene(crearPLParent));
+        crearPlStage.initModality(Modality.NONE);
+        Stage mainStage = (Stage) tebiLabel.getScene().getWindow();
+        mainStage.close();
+        crearPlStage.show();
+    }
     /**
      * Método playSong para reproducir la primera canción de la playlist
      */
     public void playSong(){
         reproductorHD.play();
+        System.out.println(testing.current.getCancion());
         songLabel.setText(testing.current.getNameS());
         artistLabel.setText(testing.current.getArtista());
         albumLabel.setText(testing.current.getAlbum());
@@ -192,10 +208,7 @@ public class MusicaView implements Initializable {
         else {
             eestadooLabel.setText("No favorita :(");
         }
-
-        //if (continuidad != false){
-           // reproductorHD.setOnEndOfMedia(nextSong());
-        //}
+        reproductorHD.setOnEndOfMedia(this::nextSong);
 
     }
     /**
@@ -218,7 +231,7 @@ public class MusicaView implements Initializable {
      * Método resetSong para reiniciar la canción
      */
     public void resetSong(){
-        reproductorHD.seek(Duration.seconds(0));
+        reproductorHD.seek(Duration.seconds(180));
         reproductorHD.play();
 
         if (testing.current.getFave() == true){
@@ -250,8 +263,10 @@ public class MusicaView implements Initializable {
     }
     /**
      * Método nextSong para ir a la canción siguiente
+     *
+     * @return
      */
-    public void nextSong(){
+    public Runnable nextSong(){
         reproductorHD.stop();
         testing.moveForwardCurrent();
         soniditos = new Media(testing.current.getCancion());
@@ -267,6 +282,7 @@ public class MusicaView implements Initializable {
         else {
             eestadooLabel.setText("No favorita :(");
         }
+        return null;
     }
     /**
      * Método para crear playlist
