@@ -40,7 +40,9 @@ public class MainController {
     private File directorio;
     private File[] archivos;
     private ArrayList<File> rolas;
-
+    /**
+     * Método para poder ir a la pantalla para crear usuarios
+     */
     @FXML
     private void goToCrear() throws IOException {
 
@@ -78,7 +80,7 @@ public class MainController {
             FXMLLoader musicaFxml = new FXMLLoader(getClass().getResource("musica-view.fxml"));
             Parent musicaParent = musicaFxml.load();
             Stage musicaStage = new Stage();
-            musicaStage.setTitle("FE MusicPlayer");
+            musicaStage.setTitle("ZEFS Music Player");
             musicaStage.setScene(new Scene(musicaParent));
             musicaStage.initModality(Modality.NONE);
             Stage mainStage = (Stage) crearCuenta.getScene().getWindow();

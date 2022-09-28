@@ -105,7 +105,7 @@ public class Playlist implements Serializable {
         }
     }
     /**
-     * Método para borrar el último elemento de la lista
+     * Método para borrar un elemento de la lista
      */
     public void delete(String nameS){
         int c = 0;

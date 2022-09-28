@@ -16,7 +16,9 @@ import org.w3c.dom.Text;
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
 import java.io.*;
-
+/**
+ * Clase para crear Playlists
+ */
 public class CrearPLView {
     private File archivo;
     @FXML
@@ -26,6 +28,9 @@ public class CrearPLView {
 
     FileChooser seleccionador = new FileChooser();
     Playlist musiquita = new Playlist("temp", "tempU");
+    /**
+     * Método para cargar archivos y agregarlos a la playlist
+     */
     @FXML
     public void cargarArchivo(MouseEvent event) throws IOException {
         archivo = seleccionador.showOpenDialog(new Stage()); // escogencia del archivo
@@ -46,7 +51,9 @@ public class CrearPLView {
 
     }
 
-
+    /**
+     * Método que crea la playlist con los archivos almacenados
+     */
     public void crearPJs() throws IOException {
 
         FileOutputStream papaJones = new FileOutputStream(".\\playlists\\"+playlistName.getText()+".xml", false);
