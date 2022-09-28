@@ -35,32 +35,32 @@ void setup() {
 
 void loop() {
   Likepulso = digitalRead(LikeButton);
-  if (Likepulso == HIGH){
+  if (Likepulso == LOW){
     Serial.print("a");
     delay(1000);
     }
   Prevpulso = digitalRead(PrevButton);
-  if (Prevpulso == HIGH){
+  if (Prevpulso == LOW){
     Serial.print("b");
     delay(1000);
     }
   Playpulso = digitalRead(PlayButton);
-  if (Playpulso == HIGH){
+  if (Playpulso == LOW){
     Serial.print("c");
     delay(1000);
     }
   Pausepulso = digitalRead(PauseButton);
-  if (Pausepulso == HIGH){
+  if (Pausepulso == LOW){
     Serial.print("d");
     delay(1000);
     }
   Nextpulso = digitalRead(NextButton);
-  if (Nextpulso == HIGH){
+  if (Nextpulso == LOW){
     Serial.print("e");
     delay(1000);
     }
   Resetpulso = digitalRead(ResetButton);
-  if (Resetpulso == HIGH){
+  if (Resetpulso == LOW){
     Serial.print("f");
     delay(1000);
     }

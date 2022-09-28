@@ -7,7 +7,9 @@ import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 
+import java.awt.*;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
 import java.io.*;
@@ -24,6 +26,7 @@ import jssc.*;
 import java.net.URL;
 import java.util.*;
 import java.util.ArrayList;
+import java.util.List;
 
 import javafx.scene.media.Media;
 import javafx.fxml.FXML;
@@ -77,6 +80,8 @@ public class MusicaView implements Initializable {
     private Label playlistLabel;
     @FXML
     private Label eestadooLabel;
+    @FXML
+    private ImageView imgAlb;
     @FXML
     private TextField editName, editArtist, editAlbum, editYear;
     @FXML

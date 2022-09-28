@@ -161,7 +161,7 @@
             <string>fave</string>
             <void method="set">
              <object idref="Node2"/>
-             <boolean>false</boolean>
+             <boolean>true</boolean>
             </void>
            </void>
            <void class="main.Node" method="getField">
@@ -353,7 +353,7 @@
    <string>current</string>
    <void method="set">
     <object idref="Playlist0"/>
-    <object idref="Node1"/>
+    <object idref="Node2"/>
    </void>
   </void>
   <void class="main.Playlist" method="getField">

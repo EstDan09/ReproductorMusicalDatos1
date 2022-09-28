@@ -57,6 +57,7 @@
                   <Font name="Segoe UI Black" size="18.0" />
                </font>
             </Button>
+            <Button fx:id="testingB" mnemonicParsing="false" onAction="#bebesong" text="Controlador" />
          </children>
       </VBox>
    </left>
@@ -137,7 +138,8 @@
                               <Label fx:id="eestadooLabel" contentDisplay="CENTER" layoutX="33.0" layoutY="127.0" text=".." textFill="WHITE">
                                  <font>
                                     <Font name="Segoe UI Black" size="11.0" />
-                                 </font></Label>
+                                 </font>
+                              </Label>
                               <Slider fx:id="slideVol" layoutX="312.0" layoutY="206.0" />
                               <Button fx:id="rcButton" layoutX="543.0" layoutY="227.0" mnemonicParsing="false" onAction="#switchCont" style="-fx-background-color: transparente;" text="Reproducción continua" textFill="WHITE">
                                  <font>
@@ -149,8 +151,9 @@
                                     <Font name="Segoe UI Black" size="11.0" />
                                  </font>
                               </Label>
-                              <Button fx:id="testingB" layoutX="42.0" layoutY="48.0" mnemonicParsing="false" onAction="#bebesong" text="Button" />
-                           </children></AnchorPane>
+                              <ImageView fx:id="imgAlb" fitHeight="150.0" fitWidth="200.0" layoutX="486.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" />
+                           </children>
+                        </AnchorPane>
                       <AnchorPane fx:id="lyricsSpace" minHeight="0.0" minWidth="0.0" prefHeight="343.0" prefWidth="737.0" style="-fx-background-color: #bec8b8#bec8b8;">
                            <children>
                               <Label fx:id="playlistLabel" layoutX="81.0" layoutY="116.0" style="-fx-font-style: #fff;" text="..." textFill="#f2f0f0">
