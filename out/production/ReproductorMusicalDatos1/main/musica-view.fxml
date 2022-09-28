@@ -77,7 +77,7 @@
    <center>
       <VBox prefHeight="605.0" prefWidth="839.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox prefHeight="554.0" prefWidth="738.0" style="-fx-background-color: #e4cbcd#e4cbcd;">
+            <VBox prefHeight="635.0" prefWidth="738.0" style="-fx-background-color: #e4cbcd#e4cbcd;">
                <children>
                   <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="549.0" prefWidth="738.0">
                     <items>
@@ -149,8 +149,9 @@
                                     <Font name="Segoe UI Black" size="11.0" />
                                  </font>
                               </Label>
+                              <Button fx:id="testingB" layoutX="42.0" layoutY="48.0" mnemonicParsing="false" onAction="#bebesong" text="Button" />
                            </children></AnchorPane>
-                      <AnchorPane fx:id="lyricsSpace" minHeight="0.0" minWidth="0.0" prefHeight="181.0" prefWidth="736.0" style="-fx-background-color: #bec8b8#bec8b8;">
+                      <AnchorPane fx:id="lyricsSpace" minHeight="0.0" minWidth="0.0" prefHeight="343.0" prefWidth="737.0" style="-fx-background-color: #bec8b8#bec8b8;">
                            <children>
                               <Label fx:id="playlistLabel" layoutX="81.0" layoutY="116.0" style="-fx-font-style: #fff;" text="..." textFill="#f2f0f0">
                                  <font>
@@ -197,7 +198,7 @@
                                     <Font name="Segoe UI Black" size="12.0" />
                                  </font>
                               </Button>
-                              <TextField layoutX="220.0" layoutY="9.0" prefHeight="252.0" prefWidth="150.0" />
+                              <Label fx:id="lyricsLBL" layoutX="210.0" layoutY="-4.0" prefHeight="362.0" prefWidth="194.0" text="...." />
                            </children></AnchorPane>
                     </items>
                   </SplitPane>
@@ -221,6 +222,6 @@
       </VBox>
    </right>
    <bottom>
-      <VBox prefHeight="177.0" prefWidth="1080.0" style="-fx-background-color: #cec6d3#cec6d3;" BorderPane.alignment="CENTER" />
+      <VBox prefHeight="96.0" prefWidth="1080.0" style="-fx-background-color: #cec6d3#cec6d3;" BorderPane.alignment="CENTER" />
    </bottom>
 </BorderPane>

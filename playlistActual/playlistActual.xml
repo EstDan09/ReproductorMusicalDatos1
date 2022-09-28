@@ -5,14 +5,14 @@
    <string>tag</string>
    <void method="set">
     <object idref="Playlist0"/>
-    <string>estebanjeje</string>
+    <string>123go</string>
    </void>
   </void>
   <void class="main.Playlist" method="getField">
    <string>owner</string>
    <void method="set">
     <object idref="Playlist0"/>
-    <string>estebillanguapo@gmail.com</string>
+    <string>zamoration@hotmail.com</string>
    </void>
   </void>
   <void class="main.Playlist" method="getField">
@@ -24,14 +24,14 @@
       <string>cancion</string>
       <void method="set">
        <object idref="Node0"/>
-       <string>file:/C:/Users/eseca/IdeaProjects/ReproductorMusicalDatos1/songs/18%20Imagine%20Dragons%20-%20Selene.mp3</string>
+       <string>file:/C:/Users/eseca/IdeaProjects/ReproductorMusicalDatos1/songs/01%20Imagine%20Dragons%20-%20Radioactive.mp3</string>
       </void>
      </void>
      <void class="main.Node" method="getField">
       <string>nameS</string>
       <void method="set">
        <object idref="Node0"/>
-       <string>Selene</string>
+       <string>Radioactive</string>
       </void>
      </void>
      <void class="main.Node" method="getField">
@@ -43,14 +43,14 @@
          <string>cancion</string>
          <void method="set">
           <object idref="Node1"/>
-          <string>file:/C:/Users/eseca/IdeaProjects/ReproductorMusicalDatos1/songs/05.%20Gimme%20Chocolate!!.mp3</string>
+          <string>file:/C:/Users/eseca/IdeaProjects/ReproductorMusicalDatos1/songs/02.%20Headbangeeeeerrrrr!!!!!.mp3</string>
          </void>
         </void>
         <void class="main.Node" method="getField">
          <string>nameS</string>
          <void method="set">
           <object idref="Node1"/>
-          <string>Gimmie Chocolate!!</string>
+          <string>Headbangeeeeerrrrr!!!!!</string>
          </void>
         </void>
         <void class="main.Node" method="getField">
@@ -83,78 +83,7 @@
             <string>prev</string>
             <void method="set">
              <object idref="Node2"/>
-             <object class="main.Node" id="Node3">
-              <void class="main.Node" method="getField">
-               <string>cancion</string>
-               <void method="set">
-                <object idref="Node3"/>
-                <string>file:/C:/Users/eseca/IdeaProjects/ReproductorMusicalDatos1/songs/04%20Imagine%20Dragons%20-%20Demons.mp3</string>
-               </void>
-              </void>
-              <void class="main.Node" method="getField">
-               <string>nameS</string>
-               <void method="set">
-                <object idref="Node3"/>
-                <string>Demons</string>
-               </void>
-              </void>
-              <void class="main.Node" method="getField">
-               <string>next</string>
-               <void method="set">
-                <object idref="Node3"/>
-                <object idref="Node2"/>
-               </void>
-              </void>
-              <void class="main.Node" method="getField">
-               <string>prev</string>
-               <void method="set">
-                <object idref="Node3"/>
-                <object idref="Node1"/>
-               </void>
-              </void>
-              <void class="main.Node" method="getField">
-               <string>artista</string>
-               <void method="set">
-                <object idref="Node3"/>
-                <string>Imagine Dragons</string>
-               </void>
-              </void>
-              <void class="main.Node" method="getField">
-               <string>album</string>
-               <void method="set">
-                <object idref="Node3"/>
-                <string>Night Visions</string>
-               </void>
-              </void>
-              <void class="main.Node" method="getField">
-               <string>lyrics</string>
-               <void method="set">
-                <object idref="Node3"/>
-                <string>sd</string>
-               </void>
-              </void>
-              <void class="main.Node" method="getField">
-               <string>year</string>
-               <void method="set">
-                <object idref="Node3"/>
-                <string>2012</string>
-               </void>
-              </void>
-              <void class="main.Node" method="getField">
-               <string>fave</string>
-               <void method="set">
-                <object idref="Node3"/>
-                <boolean>false</boolean>
-               </void>
-              </void>
-              <void class="main.Node" method="getField">
-               <string>img</string>
-               <void method="set">
-                <object idref="Node3"/>
-                <string>Night Visions</string>
-               </void>
-              </void>
-             </object>
+             <object idref="Node1"/>
             </void>
            </void>
            <void class="main.Node" method="getField">
@@ -175,7 +104,50 @@
             <string>lyrics</string>
             <void method="set">
              <object idref="Node2"/>
-             <string>praprapra</string>
+             <string>それっ！ それっ！ それっ！それそれそれそれっ！）
+     （それっ！ それっ！ それっ！それそれそれそれっ）！
+     おめかしキツネさん
+     (Chiki Chiki ワッショイ!! Chiki Chiki ワッショイ!!)
+     ツインテなびかせて
+     (Hira Hira ワッショイ!! Hira Hira ワッショイ!!)
+     はじけてドロンして
+     (Kuru Kuru ワッショイ!! Kuru Kuru ワッショイ!!)
+     いざゆけ七変化
+     コンコンコンコッ コンコンコッコン!!
+     （それっ！ それっ！ それっ！それそれそれそれっ！）
+     （それっ！ それっ！ それっ！それそれそれそれっ！）
+     古(いにしえ)の 乙女達よ
+     かりそめの 夢に踊る
+     幾千の時を超えて
+     今を生きる
+     あ〜 そうよ いつでも 女は女優よ
+     キツネじゃない キツネじゃない
+     乙女な メギツネ
+     あ〜 ヤマトナデシク 女は変わるの
+     顔で笑って 心で泣いて
+     「そうよね」って
+     涙はみせないの
+     キツネ キツネ ワタシハ メギツネ オンナハジョユウヨ
+     （そいやそいやそいやそいや そいやそいやそいやそいや そいやそいやそいやそいや それそれそれそれ！）
+     （そいやそいやそいやそいや そいやそいやそいやそいや そいやそいやそいやそいや それそれそれそれ！）
+     （それっ！ それっ！ それっ！それそれそれそれっ！）
+     （それっ！ それっ！ それっ！それそれそれそれっ！）
+     古(いにしえ)の 乙女達よ
+     かりそめの 夢に歌う
+     幾千の時を超えて
+     現代(ここ)に生きる
+     あ〜 そうよ いつでも女は女優よ
+     キツネじゃない キツネじゃない
+     乙女は
+     なめたらいかんぜよ
+     あ〜 ヤマトナデシク 女は変わるの
+     ずっと いつも 消えない様に
+     花火を上げるの
+     あ〜 咲いて散るのが 女の運命(さだめ)よ
+     顔で笑って 心で泣いて
+     純情 乙女な メギツネよ
+     あ～ぁ
+    </string>
             </void>
            </void>
            <void class="main.Node" method="getField">
@@ -227,7 +199,34 @@
          <string>lyrics</string>
          <void method="set">
           <object idref="Node1"/>
-          <string>LETRAAA</string>
+          <string>伝説の黒髪を華麗に乱し
+     狂い咲くこの華は はかなく消える
+     さぁ時は来た もう迷わない 握りしめたの 18きっぷ
+     東へ西へ 南へ北へ 今日もドセンに突撃
+     上手(こいや!) 下手(こいや!) 直立不動 仰け反り
+     逆ダイ(からの) 柵ダイ(からの) コロダイ(からの) 折りたたみ
+     15の夜を忘れはしない
+     泣き虫なヤツは ここから消え失せろ
+     伝説の黒髪を華麗に乱し
+     狂い咲くこの華は はかなく消える
+     もう二度と戻らない わずかな時を
+     この胸に刻むんだ 15の夜を
+     ひらり 宙に舞う
+     ヘドバンギャーッ!!
+     15の夜を忘れはしない
+     泣き虫なヤツは ここから消えろ
+     15の夜を忘れはしない
+     邪魔をするヤツは 即座に消え失せろ
+     伝説の黒髪を華麗に乱し
+     狂い咲くこの華は はかなく消える
+     もう二度と戻らない わずかな時を
+     この胸に刻むんだ 15の夜を
+     伝説の黒髪を華麗に乱し
+     狂い咲くこの華は はかなく消える
+     もう二度と戻れない わずかな時を
+     思い出に刻むんだ 15の夜を
+     ひらり 宙に舞う
+     ヘドバンギャーッ!!</string>
          </void>
         </void>
         <void class="main.Node" method="getField">
@@ -279,7 +278,44 @@
       <string>lyrics</string>
       <void method="set">
        <object idref="Node0"/>
-       <string>sd</string>
+       <string>Whoa, oh, oh
+     Whoa, oh, oh
+     Whoa, oh, oh
+     Whoa
+     I&apos;m waking up to ash and dust
+     I wipe my brow and I sweat my rust
+     I&apos;m breathing in the chemicals
+     I&apos;m breaking in, shaping up, then checking out on the prison bus
+     This is it, the apocalypse
+     Whoa
+     I&apos;m waking up, I feel it in my bones
+     Enough to make my systems blow
+     Welcome to the new age, to the new age
+     Welcome to the new age, to the new age
+     Whoa, oh, oh, oh, oh, whoa, oh, oh, oh, I&apos;m radioactive, radioactive
+     Whoa, oh, oh, oh, oh, whoa, oh, oh, oh, I&apos;m radioactive, radioactive
+     I raise my flags, don my clothes
+     It&apos;s a revolution, I suppose
+     We&apos;ll paint it red to fit right in
+     Whoa
+     I&apos;m breaking in, shaping up, then checking out on the prison bus
+     This is it, the apocalypse
+     Whoa
+     I&apos;m waking up, I feel it in my bones
+     Enough to make my systems blow
+     Welcome to the new age, to the new age
+     Welcome to the new age, to the new age
+     Whoa, oh, oh, oh, oh, whoa, oh, oh, oh, I&apos;m radioactive, radioactive
+     Whoa, oh, oh, oh, oh, whoa, oh, oh, oh, I&apos;m radioactive, radioactive
+     All systems go, the sun hasn&apos;t died
+     Deep in my bones, straight from inside
+     I&apos;m waking up, I feel it in my bones
+     Enough to make my systems blow
+     Welcome to the new age, to the new age
+     Welcome to the new age, to the new age
+     Whoa, oh, oh, oh, oh, whoa, oh, oh, oh, I&apos;m radioactive, radioactive
+     Whoa, oh, oh, oh, oh, whoa, oh, oh, oh, I&apos;m radioactive, radioactive
+    </string>
       </void>
      </void>
      <void class="main.Node" method="getField">
@@ -293,7 +329,7 @@
       <string>fave</string>
       <void method="set">
        <object idref="Node0"/>
-       <boolean>false</boolean>
+       <boolean>true</boolean>
       </void>
      </void>
      <void class="main.Node" method="getField">
@@ -314,17 +350,10 @@
    </void>
   </void>
   <void class="main.Playlist" method="getField">
-   <string>tmp</string>
-   <void method="set">
-    <object idref="Playlist0"/>
-    <object idref="Node2"/>
-   </void>
-  </void>
-  <void class="main.Playlist" method="getField">
    <string>current</string>
    <void method="set">
     <object idref="Playlist0"/>
-    <object idref="Node0"/>
+    <object idref="Node1"/>
    </void>
   </void>
   <void class="main.Playlist" method="getField">

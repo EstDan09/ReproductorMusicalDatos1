@@ -64,7 +64,7 @@ public class MusicaView implements Initializable {
     @FXML
     private Button editButton;
     @FXML
-    private Button bebesongButton;
+    private Button testingB;
     @FXML
     private Label tebiLabel;
     @FXML
@@ -109,7 +109,7 @@ public class MusicaView implements Initializable {
     @Override
     public void initialize (URL url, ResourceBundle resourceBundle) {
         try {
-            wap();
+            //wap();
             FileInputStream cargaUsuarioActual = new FileInputStream(".\\users\\usuarioActual.xml");
             XMLDecoder decoder = new XMLDecoder(cargaUsuarioActual);
             Users usActual = (Users)decoder.readObject();
@@ -244,6 +244,8 @@ public class MusicaView implements Initializable {
         songLabel.setText(testing.current.getNameS());
         artistLabel.setText(testing.current.getArtista());
         albumLabel.setText(testing.current.getAlbum());
+        playlistLabel.setText(testing.getTag());
+        lyricsLBL.setText(testing.current.getLyrics());
 
         if (testing.current.getFave() == true){
             eestadooLabel.setText("Favorita!");
@@ -256,7 +258,7 @@ public class MusicaView implements Initializable {
      * Método resetSong para reiniciar la canción
      */
     public void resetSong(){
-        reproductorHD.seek(Duration.seconds(180));
+        reproductorHD.seek(Duration.seconds(0));
         reproductorHD.play();
 
         if (testing.current.getFave() == true){
@@ -278,6 +280,8 @@ public class MusicaView implements Initializable {
         songLabel.setText(testing.current.getNameS());
         artistLabel.setText(testing.current.getArtista());
         albumLabel.setText(testing.current.getAlbum());
+        playlistLabel.setText(testing.getTag());
+        lyricsLBL.setText(testing.current.getLyrics());
 
         if (testing.current.getFave() == true){
             eestadooLabel.setText("Favorita!");
@@ -300,6 +304,8 @@ public class MusicaView implements Initializable {
         songLabel.setText(testing.current.getNameS());
         artistLabel.setText(testing.current.getArtista());
         albumLabel.setText(testing.current.getAlbum());
+        playlistLabel.setText(testing.getTag());
+        lyricsLBL.setText(testing.current.getLyrics());
 
         if (testing.current.getFave() == true){
             eestadooLabel.setText("Favorita!");
@@ -334,6 +340,7 @@ public class MusicaView implements Initializable {
             artistLabel.setText(testing.current.getArtista());
             albumLabel.setText(testing.current.getAlbum());
             playlistLabel.setText(testing.getTag());
+            lyricsLBL.setText(testing.current.getLyrics());
             reproductorHD.play();
 
 
@@ -362,6 +369,7 @@ public class MusicaView implements Initializable {
             artistLabel.setText(testing.current.getArtista());
             albumLabel.setText(testing.current.getAlbum());
             playlistLabel.setText(testing.getTag());
+            lyricsLBL.setText(testing.current.getLyrics());
             reproductorHD.play();
 
         }
@@ -429,6 +437,9 @@ public class MusicaView implements Initializable {
         encoderPAPAA.close();
         papaJonesA.close();
     }
+    public void bebesong(){
+        wap();
+    }
     public void wap(){
         SerialPort puerto = new SerialPort("COM6");
         try {
@@ -440,18 +451,38 @@ public class MusicaView implements Initializable {
                         String x = puerto.readString();
                         if (x.equals("c")){
                             playSong();
+                            songLabel.setText(testing.current.getNameS());
+                            artistLabel.setText(testing.current.getArtista());
+                            albumLabel.setText(testing.current.getAlbum());
+                            playlistLabel.setText(testing.getTag());
+                            lyricsLBL.setText(testing.current.getLyrics());
                         }
                         if (x.equals("d")){
                             pauseSong();
+                            songLabel.setText(testing.current.getNameS());
+                            artistLabel.setText(testing.current.getArtista());
+                            albumLabel.setText(testing.current.getAlbum());
+                            playlistLabel.setText(testing.getTag());
+                            lyricsLBL.setText(testing.current.getLyrics());
                         }
                         if (x.equals("e")){
                             nextSong();
                         }
                         if (x.equals("b")){
                             prevSong();
+                            songLabel.setText(testing.current.getNameS());
+                            artistLabel.setText(testing.current.getArtista());
+                            albumLabel.setText(testing.current.getAlbum());
+                            playlistLabel.setText(testing.getTag());
+                            lyricsLBL.setText(testing.current.getLyrics());
                         }
                         if (x.equals("a")){
                             likear();
+                            songLabel.setText(testing.current.getNameS());
+                            artistLabel.setText(testing.current.getArtista());
+                            albumLabel.setText(testing.current.getAlbum());
+                            playlistLabel.setText(testing.getTag());
+                            lyricsLBL.setText(testing.current.getLyrics());
                         }
                     }
                     catch (SerialPortException e){
