@@ -88,7 +88,7 @@ public class CreateUView implements Initializable{
         FileWriter playlistTagger = new FileWriter(".\\playlistsUsers\\"+uGuardar.getEmail()+".xml", true);
 
 
-        FXMLLoader musicaFxml = new FXMLLoader(getClass().getResource("musica-view.fxml"));
+        FXMLLoader musicaFxml = new FXMLLoader(getClass().getResource("crearPLView.fxml"));
         Parent musicaParent = musicaFxml.load();
         Stage musicaStage = new Stage();
         musicaStage.setTitle("FE MusicPlayer");

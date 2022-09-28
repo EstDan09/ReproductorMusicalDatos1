@@ -1,8 +1,13 @@
 package main;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import org.w3c.dom.Text;
 
 import java.beans.XMLDecoder;
@@ -28,10 +33,23 @@ public class Deleite {
         System.out.println(txtCancion.getText());
         test.showPlaylist();
 
-
-        // reescribe playlist sin la canción //
-
-
+        FileOutputStream papaJones = new FileOutputStream(".\\playlists\\"+test.getTag()+".xml", false);
+        XMLEncoder encoderPAPA = new XMLEncoder(papaJones);
+        encoderPAPA.writeObject(test);
+        encoderPAPA.close();
+        papaJones.close();
     }
+    public void regresar() throws IOException {
+        FXMLLoader createUFxml = new FXMLLoader(getClass().getResource("musica-view.fxml"));
+        Parent createUParent = createUFxml.load();
+        Stage createUStage = new Stage();
+        createUStage.setTitle("Crea Tu Cuenta");
+        createUStage.setScene(new Scene(createUParent));
+        createUStage.initModality(Modality.NONE); //se puede borrar
+        Stage mainStage = (Stage) txtCancion.getScene().getWindow();
+        mainStage.close();
+        createUStage.show();
+    }
+
 
 }

@@ -5,28 +5,28 @@
    <string>nameComplete</string>
    <void method="set">
     <object idref="Users0"/>
-    <string>Fabiana Zamora </string>
+    <string>Esteban Secaida</string>
    </void>
   </void>
   <void class="main.Users" method="getField">
    <string>email</string>
    <void method="set">
     <object idref="Users0"/>
-    <string>zamoration@hotmail.com</string>
+    <string>estebillanguapo@gmail.com</string>
    </void>
   </void>
   <void class="main.Users" method="getField">
    <string>provi</string>
    <void method="set">
     <object idref="Users0"/>
-    <string>Limón</string>
+    <string>San José</string>
    </void>
   </void>
   <void class="main.Users" method="getField">
    <string>password</string>
    <void method="set">
     <object idref="Users0"/>
-    <string>lacriminal23</string>
+    <string>123</string>
    </void>
   </void>
  </object>

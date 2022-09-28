@@ -38,6 +38,8 @@ import javafx.util.Duration;
 public class MusicaView implements Initializable {
     @FXML
     private Button albumsButton;
+    @FXML
+    private Label lyricsLBL;
 
     @FXML
     private Button artistsButton;
@@ -50,6 +52,8 @@ public class MusicaView implements Initializable {
 
     @FXML
     private Button searchButton;
+    @FXML
+    private Label labRepro;
 
     @FXML
     private Button searchButton1;
@@ -99,14 +103,6 @@ public class MusicaView implements Initializable {
     private int cambio = 0;
     private boolean continuidad = true;
 
-
-    /**
-     * Clase cargarArchivo para que el usuario pueda cargar archivos para sus playlist
-     */
-    @FXML
-    private void cargarArchivo(MouseEvent event) {
-        archivo = seleccionador.showOpenDialog(new Stage());
-    }
     /**
      * Método que carga la información del usuario para su pantalla de inicio
      */
@@ -147,12 +143,37 @@ public class MusicaView implements Initializable {
                 soniditos = new Media(testing.current.getCancion());
                 reproductorHD = new MediaPlayer(soniditos);
             }
+            else{
+                if(listasDisponibles.size() > 0){
+                    FileInputStream buscarPL = new FileInputStream(".\\playlists\\"+listasDisponibles.get(0)+".xml");
+                    XMLDecoder decoder1 = new XMLDecoder(buscarPL);
+                    testing = (Playlist) decoder1.readObject();
+                    cargaUsuarioActual.close();
+
+                    FileOutputStream papaJones2 = new FileOutputStream(".\\playlistActual\\playlistActual.xml", false);
+                    XMLEncoder encoderPAPA2 = new XMLEncoder(papaJones2);
+                    encoderPAPA2.writeObject(testing);
+                    encoderPAPA2.close();
+                    papaJones2.close();
+
+                    soniditos = new Media(testing.current.getCancion());
+                    reproductorHD = new MediaPlayer(soniditos);
+                }
+
+            }
 
             if (testing.current.getFave() == true){
                 eestadooLabel.setText("Favorita!");
             }
             else {
                 eestadooLabel.setText("No favorita :(");
+            }
+
+            if(continuidad == true){
+                labRepro.setText("Sí");
+            }
+            else{
+                labRepro.setText("No");
             }
 
             slideVol.valueProperty().addListener(new ChangeListener<Number>() {
@@ -201,6 +222,8 @@ public class MusicaView implements Initializable {
         artistLabel.setText(testing.current.getArtista());
         albumLabel.setText(testing.current.getAlbum());
         playlistLabel.setText(testing.getTag());
+        lyricsLBL.setText(testing.current.getLyrics());
+
 
         if (testing.current.getFave() == true){
             eestadooLabel.setText("Favorita!");
@@ -208,7 +231,9 @@ public class MusicaView implements Initializable {
         else {
             eestadooLabel.setText("No favorita :(");
         }
-        reproductorHD.setOnEndOfMedia(this::nextSong);
+        if (continuidad == true){
+            reproductorHD.setOnEndOfMedia(this::nextSong);
+        }
 
     }
     /**
@@ -284,12 +309,6 @@ public class MusicaView implements Initializable {
         }
         return null;
     }
-    /**
-     * Método para crear playlist
-     */
-    public void createPlaylist(){
-
-    }
 
     public void cambiarPlaylist() throws IOException {
         reproductorHD.stop();
@@ -346,7 +365,6 @@ public class MusicaView implements Initializable {
             reproductorHD.play();
 
         }
-
     }
 
     public void likear() throws IOException {
@@ -382,6 +400,17 @@ public class MusicaView implements Initializable {
         }
 
     }
+    public void switchCont(){
+        if(continuidad != true){
+            continuidad = true;
+            labRepro.setText("Sí");
+            reproductorHD.setOnEndOfMedia(this::nextSong);
+        }
+        else{
+            continuidad = false;
+            labRepro.setText("No");
+        }
+    }
     public void editar() throws IOException {
         testing.current.setNameS(editName.getText());
         testing.current.setArtista(editArtist.getText());
@@ -409,22 +438,21 @@ public class MusicaView implements Initializable {
                 if (event.isRXCHAR()){
                     try {
                         String x = puerto.readString();
-                        if (x.equals("p")){
+                        if (x.equals("c")){
                             playSong();
                         }
-                        if (x.equals("i")){
+                        if (x.equals("d")){
                             pauseSong();
                         }
-                        if (x.equals("n")){
+                        if (x.equals("e")){
                             nextSong();
                         }
-                        if (x.equals("g")){
+                        if (x.equals("b")){
                             prevSong();
                         }
                         if (x.equals("a")){
                             likear();
                         }
-
                     }
                     catch (SerialPortException e){
                         e.printStackTrace();

@@ -139,13 +139,18 @@
                                     <Font name="Segoe UI Black" size="11.0" />
                                  </font></Label>
                               <Slider fx:id="slideVol" layoutX="312.0" layoutY="206.0" />
-                              <Button fx:id="rcButton" layoutX="543.0" layoutY="227.0" mnemonicParsing="false" style="-fx-background-color: transparente;" text="Reproducción continua" textFill="WHITE">
+                              <Button fx:id="rcButton" layoutX="543.0" layoutY="227.0" mnemonicParsing="false" onAction="#switchCont" style="-fx-background-color: transparente;" text="Reproducción continua" textFill="WHITE">
                                  <font>
                                     <Font name="Segoe UI Black" size="12.0" />
                                  </font>
                               </Button>
+                              <Label fx:id="labRepro" contentDisplay="CENTER" layoutX="705.0" layoutY="232.0" text=".." textFill="WHITE">
+                                 <font>
+                                    <Font name="Segoe UI Black" size="11.0" />
+                                 </font>
+                              </Label>
                            </children></AnchorPane>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="181.0" prefWidth="736.0" style="-fx-background-color: #bec8b8#bec8b8;">
+                      <AnchorPane fx:id="lyricsSpace" minHeight="0.0" minWidth="0.0" prefHeight="181.0" prefWidth="736.0" style="-fx-background-color: #bec8b8#bec8b8;">
                            <children>
                               <Label fx:id="playlistLabel" layoutX="81.0" layoutY="116.0" style="-fx-font-style: #fff;" text="..." textFill="#f2f0f0">
                                  <font>
@@ -192,6 +197,7 @@
                                     <Font name="Segoe UI Black" size="12.0" />
                                  </font>
                               </Button>
+                              <TextField layoutX="220.0" layoutY="9.0" prefHeight="252.0" prefWidth="150.0" />
                            </children></AnchorPane>
                     </items>
                   </SplitPane>

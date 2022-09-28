@@ -159,7 +159,6 @@ public class Playlist implements Serializable {
      * Método para mover para adelante en la lista el Nodo Current
      */
     public void moveForwardCurrent(){
-
         current = current.next;
     }
     /**
